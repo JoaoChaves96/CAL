@@ -3,7 +3,7 @@
 using namespace std;
 
 class AirShuttle{
-	vector<Person> reservations;
+	vector<Reservation> reservations;
 	vector<Van> vans;
 
 public:
