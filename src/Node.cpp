@@ -1,0 +1,29 @@
+#include "Node.h"
+
+Node::Node(int ID, double lat_deg, double lon_deg, double lat_rad, double lon_ra){
+	this->ID = ID;
+	this->lat_deg = lat_deg;
+	this->lon_deg = lon_deg;
+	this->lat_rad = lat_rad;
+	this->lon_rad = lon_rad;
+}
+
+int Node::getId() const {
+	return ID;
+}
+
+double Node::getLatDeg() const {
+	return lat_deg;
+}
+
+double Node::getLatRad() const {
+	return lat_rad;
+}
+
+double Node::getLonDeg() const {
+	return lon_deg;
+}
+
+double Node::getLonRad() const {
+	return lon_rad;
+}

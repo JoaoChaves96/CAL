@@ -1,5 +1,10 @@
 #include "Person.h"
 
+Person::Person(){
+	this->name = "";
+	this->NIF = 0;
+}
+
 Person::Person(string name, int NIF){
 	this->name = name;
 	this->NIF = NIF;

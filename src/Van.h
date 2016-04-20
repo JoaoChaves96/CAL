@@ -1,4 +1,5 @@
-
+#ifndef VAN_H_
+#define VAN_H_
 
 class Van{
 	int capacity;
@@ -17,3 +18,5 @@ public:
 
 	void resetOcupation();
 };
+
+#endif

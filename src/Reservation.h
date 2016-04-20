@@ -1,4 +1,8 @@
+#ifndef RESERVATION_H_
+#define RESERVATION_H_
+
 #include <string>
+#include "Person.h"
 
 using namespace std;
 
@@ -18,3 +22,5 @@ public:
 	void setnumPassengers(int num);
 	void setDestination(string destination);
 };
+
+#endif
