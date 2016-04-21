@@ -1,6 +1,12 @@
 #ifndef NODE_H_
 #define NODE_H_
 
+#include <vector>
+
+#include "Subroad.h"
+
+class Subroad;
+
 class Node{
 	int ID;
 	double lat_deg;
@@ -15,6 +21,9 @@ public:
 	double getLatRad() const;
 	double getLonDeg() const;
 	double getLonRad() const;
+	bool operator ==(const Node n1) const;
+
+	friend class Edge;
 };
 
 #endif

@@ -9,12 +9,14 @@
 #include <sstream>
 #include "Node.h"
 #include "Road.h"
-#include "SubRoad.h"
+#include "Graph.h"
+#include "Subroad.h"
 
 using namespace std;
 
-vector<Node> readNodes();
-vector<Road> readRoads();
-vector<SubRoad> readSubroads();
+void readNodes(Graph<Node,Road> & g);
+vector<Road *> readRoads();
+void readEdges();
+Node * findNode(vector<Node * > nodes, int ID);
 
 #endif

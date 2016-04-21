@@ -1,12 +1,20 @@
 #include "readFiles.h"
 #include "Node.h"
 #include "Road.h"
-#include "SubRoad.h"
+#include "Graph.h"
+#include "Subroad.h"
 
-vector<Node> readNodes(){
+Node * findNode(vector<Node * > nodes, int ID){
+	for (int i = 0; i< nodes.size(); i++){
+		if (nodes[i]->getId() == ID)
+			return nodes[i];
+	}
+}
+
+void readNodes(Graph<Node, Road> & g) {
 	ifstream inFile;
 
-	vector<Node> ret;
+	//vector<Vertex *> ret;
 
 	//Ler o ficheiro nos.txt
 	inFile.open("nos.txt");
@@ -36,23 +44,20 @@ vector<Node> readNodes(){
 		std::getline(linestream, data, ';'); // read up-to the first ; (discard ;).
 		linestream >> lon_rad;
 		Node n(idNo, lat_deg, lon_deg, lat_rad, lon_rad);
-		ret.push_back(n);
-
+		g.addVertex(n);
+		//ret.push_back(&n);
 
 	}
 
 	inFile.close();
 
-	return ret;
 }
 
-vector<Road> readRoads(){
+void readEdges(vector<Node *> nodes, vector<Road *> roads) {
 	ifstream inFile;
 
-	//Ler o ficheiro roads.txt
-	inFile.open("roads.txt");
-
-	vector<Road> ret;
+	//Ler o ficheiro subroads.txt
+	inFile.open("subroads.txt");
 
 	if (!inFile) {
 		cerr << "Unable to open file datafile.txt";
@@ -61,7 +66,48 @@ vector<Road> readRoads(){
 
 	std::string line;
 
-	int ID = 0;
+	int roadID;
+	int node1ID, node2ID;
+
+	while (std::getline(inFile, line)) {
+		std::stringstream linestream(line);
+		std::string data;
+
+		linestream >> roadID;
+
+		std::getline(linestream, data, ';'); // read up-to the first ; (discard ;).
+		linestream >> node1ID;
+		std::getline(linestream, data, ';'); // read up-to the first ; (discard ;).
+		linestream >> node2ID;
+
+		for (int i = 0; i < roads.size(); i++) {
+			if (roads[i]->getID() == roadID) {
+				//criar edge...
+			}
+		}
+
+	}
+
+	inFile.close();
+
+}
+
+vector<Road *> readRoads() {
+	ifstream inFile;
+
+	vector<Road *> ret;
+
+	//Ler o ficheiro nos.txt
+	inFile.open("roads.txt");
+
+	if (!inFile) {
+		cerr << "Unable to open file datafile.txt";
+		exit(1);
+	}
+
+	std::string line;
+
+	int idNo = 0;
 	string name;
 	string two_way;
 
@@ -69,7 +115,7 @@ vector<Road> readRoads(){
 		std::stringstream linestream(line);
 		std::string data;
 
-		linestream >> ID;
+		linestream >> idNo;
 
 		std::getline(linestream, data, ';'); // read up-to the first ; (discard ;).
 		linestream >> name;
@@ -77,15 +123,13 @@ vector<Road> readRoads(){
 		linestream >> two_way;
 
 		if (two_way == "FALSE"){
-			Road r(ID, name, false);
-			ret.push_back(r);
+			Road r(idNo, name, false);
+			ret.push_back(&r);
 		}
 		else{
-			Road r(ID, name, true);
-			ret.push_back(r);
+			Road r(idNo, name, true);
+			ret.push_back(&r);
 		}
-
-
 
 	}
 
@@ -94,40 +138,3 @@ vector<Road> readRoads(){
 	return ret;
 }
 
-vector<SubRoad> readSubRoads(){
-	ifstream inFile;
-
-	vector<SubRoad> ret;
-
-	//Ler o ficheiro subroads.txt
-		inFile.open("subroads.txt");
-
-		if (!inFile) {
-			cerr << "Unable to open file datafile.txt";
-			exit(1);
-		}
-
-		std::string line;
-
-		int roadID = 0;
-		int node1ID = 0;
-		int node2ID = 0;
-
-		while (std::getline(inFile, line)) {
-			std::stringstream linestream(line);
-			std::string data;
-
-			linestream >> roadID;
-
-			std::getline(linestream, data, ';'); // read up-to the first ; (discard ;).
-			linestream >> node1ID;
-			std::getline(linestream, data, ';'); // read up-to the first ; (discard ;).
-			linestream >> node2ID;
-			SubRoad s(roadID, node1ID, node2ID);
-			ret.push_back(s);
-		}
-
-		inFile.close();
-
-		return ret;
-}

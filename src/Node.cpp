@@ -27,3 +27,7 @@ double Node::getLonDeg() const {
 double Node::getLonRad() const {
 	return lon_rad;
 }
+
+bool Node::operator ==(const Node n1) const{
+	return (ID == n1.getId());
+}
