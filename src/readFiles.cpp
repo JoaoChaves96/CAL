@@ -121,11 +121,12 @@ Road readRoads(unsigned long roadID) {
 
 		linestream >> idNo;
 
-		std::getline(linestream, data, ';'); // read up-to the first ; (discard ;).
-		linestream >> name;
-		std::getline(linestream, data, ';'); // read up-to the first ; (discard ;).
-		linestream >> two_way;
+		std::stringstream s(line);
+		std::getline(s, data, ';'); // read up-to the first ; (discard ;).
+		std::getline(s, name, ';'); // read up-to the first ; (discard ;).
+		std::getline(s, two_way); // read up-to the first ; (discard ;).
 
+		if (idNo == roadID){
 		if (two_way == "FALSE"){
 			Road r(idNo, name, false);
 			return r;
@@ -133,6 +134,7 @@ Road readRoads(unsigned long roadID) {
 		else{
 			Road r(idNo, name, true);
 			return r;
+		}
 		}
 
 	}

@@ -137,12 +137,17 @@ public:
 	friend class Graph<T,U>;
 	friend class Vertex<T,U>;
 	U getInfo();
+	double getWeight() const;
 };
 template <class T, class U>
 U Edge1<T, U>::getInfo(){
 	return info;
 }
 
+template<class T, class U>
+double Edge1<T, U>::getWeight() const{
+	return weight;
+}
 
 template <class T, class U>
 Edge1<T,U>::Edge1(Vertex<T,U> *d, double w, U info): dest(d), weight(w), info(info){}
