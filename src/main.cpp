@@ -8,5 +8,9 @@
 using namespace std;
 
 int main(){
-	//vector<Road *> roads = readRoads();
+	AirShuttle a1;
+	a1.loadGraph();
+	a1.showNodeID();
+
+	return 0;
 }

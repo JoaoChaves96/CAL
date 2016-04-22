@@ -8,6 +8,10 @@
 #include <sstream>
 #include "Reservation.h"
 #include "Van.h"
+#include "Graph.h"
+#include "Road.h"
+#include "Node.h"
+#include "readFiles.h"
 
 
 using namespace std;
@@ -18,10 +22,13 @@ class AirShuttle{
 
 public:
 	AirShuttle();
+	Graph<Node, Road> g;
 	vector<Reservation> getReservations();
 	vector<Van> getVans();
 	void addReservation(Reservation r);
 	void addVan(Van v1);
+	void loadGraph();
+	void showNodeID();
 
 };
 

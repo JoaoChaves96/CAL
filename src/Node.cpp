@@ -1,6 +1,8 @@
 #include "Node.h"
 
-Node::Node(int ID, double lat_deg, double lon_deg, double lat_rad, double lon_ra){
+using namespace std;
+
+Node::Node(unsigned long ID, double lat_deg, double lon_deg, double lat_rad, double lon_rad){
 	this->ID = ID;
 	this->lat_deg = lat_deg;
 	this->lon_deg = lon_deg;
@@ -8,7 +10,7 @@ Node::Node(int ID, double lat_deg, double lon_deg, double lat_rad, double lon_ra
 	this->lon_rad = lon_rad;
 }
 
-int Node::getId() const {
+unsigned long Node::getId() const {
 	return ID;
 }
 
@@ -28,6 +30,6 @@ double Node::getLonRad() const {
 	return lon_rad;
 }
 
-bool Node::operator ==(const Node n1) const{
+bool Node::operator ==(const Node &n1) const{
 	return (ID == n1.getId());
 }

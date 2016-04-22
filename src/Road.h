@@ -6,12 +6,13 @@
 using namespace std;
 
 class Road{
-	int ID;
+	unsigned long ID;
 	string name;
 	bool two_way;
 public:
-	Road(int ID, string name, bool two_way);
-	int getID() const;
+	Road(unsigned long ID, string name, bool two_way);
+	unsigned long getID() const;
+	string getName() const;
 };
 
 

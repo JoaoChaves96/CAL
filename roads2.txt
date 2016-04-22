@@ -1,0 +1,675 @@
+217529184;;False
+118658474;Rua Doutor David Ramalhão;False
+41067571;;False
+217661971;Travessa Oriental;False
+24807578;;False
+24807845;;False
+24811470;;False
+24811595;;False
+25544987;Rua da Telheira;False
+25676410;;False
+25676530;;False
+25676615;;False
+25687751;Rua Oriental;True
+26310257;;True
+25687435;Rua do Chouso;False
+35151867;;False
+41030442;Alameda Padre Alcino Azevedo Barbosa;True
+41030417;Rua do Doutor Farinhote;True
+41030431;Avenida Doutor José Vieira de Carvalho;True
+41030422;Avenida Doutor José Vieira de Carvalho;False
+41030427;Avenida Doutor José Vieira de Carvalho;False
+41044938;Rua Albino José Moreira;False
+41044944;Rua Isolino Domingues da Silva;False
+41055452;Rua Professor Oliveira Andrade;False
+41055454;Rua de Santa Luzia;False
+41059644;;False
+41067573;;False
+41067574;Travessa Professor Oliveira Andrade;False
+41067572;;False
+41067570;Rua dos Verdes;False
+41067667;;False
+41067665;;False
+41068768;;False
+41068769;;False
+41117705;;False
+41117623;;False
+41117890;;False
+40823688;Rua 4 da Urbanização do Lidador;False
+40823698;Avenida Fernando Pessoa;False
+40823713;Avenida Fernando Pessoa;False
+40823695;;False
+40823694;Rua 8 da Urbanização do Lidador;False
+40590438;Via Lidador Igreja;False
+51228957;Rua 5 da Urbanização do Lidador;False
+51228958;Rua da Fábrica;False
+51230337;;False
+51353425;;False
+104433869;;False
+104433872;;False
+104433879;;False
+104433880;;False
+104433883;;False
+104433884;;False
+104433885;;False
+104433891;;False
+104430671;;False
+59227906;;False
+76216695;;False
+95389421;;False
+95389424;;False
+95389434;;False
+95389443;;False
+25675889;;False
+25675891;;False
+33731448;Rua 31 de Janeiro;False
+95389446;Estrada Nacional 107;True
+95397920;;False
+95398062;;False
+95389454;Rua da Estrada;False
+76216697;;False
+95389431;;False
+95798521;Via Estruturante de Crestins;False
+95798520;Via Estruturante de Crestins;False
+95799019;Via Estruturante de Crestins;False
+95799018;;False
+99725115;Rua da Botica;False
+99722703;Rua 31 de Janeiro;False
+107537704;;False
+144974254;Rua Alberto Campos Costa Maia;True
+145016457;;True
+145018098;Rua da Botica;True
+145018101;;True
+145018102;;False
+145018093;;False
+145018103;Rua da Botica;True
+99722109;Rua das Pedras Rubras;True
+145018096;Rua da Botica;True
+145018094;Estrada Nacional 107;False
+145115431;;False
+126028265;;False
+126028266;;False
+126028269;;False
+126028270;;False
+126028271;;False
+126028272;;False
+126028273;;False
+126028274;;False
+126028267;;False
+126028268;;False
+126028843;;False
+126028532;;False
+130533202;;False
+130533203;;False
+130533247;;False
+130533193;;False
+130533195;;False
+130533199;;False
+130533192;;False
+130533194;Rua 31 de Janeiro;False
+130533225;Rua José Joaquim Andrade;False
+130533197;;False
+130533205;;False
+130533206;;False
+130533211;;False
+130533212;;False
+130533213;;False
+130533214;;False
+130533221;;False
+130533223;;False
+130533231;;False
+130533232;;False
+130533245;;False
+130533254;;False
+130533246;;False
+130597469;;False
+130709396;;False
+130709395;;False
+130909991;;False
+130909996;;False
+130910007;;False
+130910008;;False
+130910082;;False
+130910083;;False
+40635248;Rua 1 da Urbanização do Lidador;False
+130910070;;False
+130910089;Rua da Aldeia;False
+130910005;;False
+130910025;;False
+130910060;;False
+130910061;;False
+130910091;;False
+130910098;;False
+130910101;;False
+130910010;;False
+130910047;;False
+130909993;;False
+130909994;;False
+130910000;;False
+130910009;;False
+130910013;;False
+130910016;;False
+130910018;;False
+130910039;;False
+130910067;;False
+130910078;;False
+130910081;;False
+130910084;;False
+130910086;;False
+130909999;;False
+130910085;;False
+130910003;;False
+130910064;;False
+130910071;;False
+130910073;;False
+130910088;;False
+130910019;Rua Professor António Rocha;True
+130910074;;True
+130910006;;True
+130910015;;True
+130910017;;True
+130910035;;True
+130910036;;True
+130910037;;True
+130910042;;True
+130910043;;True
+130910090;;True
+130910123;;True
+130910022;;True
+99725118;Rua do Monte;True
+130910032;;True
+131901680;;True
+131901690;;True
+131901681;;True
+131901688;;False
+131901686;;False
+95389420;Estrada Nacional 107;True
+163107807;;True
+95799020;;True
+41067666;;True
+126028736;;True
+126028735;;False
+126028740;;False
+126028742;;False
+126028744;;False
+126028738;;False
+163123402;;False
+163123407;;False
+25606442;Avenida do Aeroporto;False
+168970794;;True
+168970792;;False
+168970789;;False
+168970865;Via Estruturante de Crestins;False
+168970867;;True
+168970884;;True
+168970868;;False
+168970912;;True
+168970953;;True
+168970931;;True
+168970937;;False
+168970938;;False
+168970882;;False
+168970900;Partidas;False
+168970943;;False
+168970962;;False
+168970892;;False
+168970893;;False
+168970876;;True
+168970875;;False
+168970870;Rua da Telheira;False
+25675885;;True
+25606440;;False
+25675894;;False
+145018097;;False
+95389444;;False
+25676432;;False
+25675882;;False
+168970987;;True
+168970994;;False
+168971002;;False
+168971063;;True
+168971018;;False
+168971021;;False
+168970968;;True
+168971039;;False
+168971042;;True
+168970978;;False
+168971045;;False
+168971038;;False
+168971048;;False
+168971059;;False
+168971052;;False
+168971077;;False
+168971070;;True
+168971031;P0;False
+168971072;;True
+168971047;P0;False
+168970973;;False
+168971106;;False
+99722704;Rua Nova Monte das Pedras;False
+25606487;Rua da Botica;True
+25675884;;False
+24811431;;False
+24811506;;False
+126028533;;False
+25675896;;False
+25676550;;False
+107537701;;False
+25675897;;False
+76216698;;False
+26310260;;False
+76216694;Estrada Nacional 107;True
+107537703;;True
+145018092;;True
+163123404;;False
+163123398;Chegadas;False
+168970866;Via Estruturante de Crestins;False
+95799023;Via Estruturante de Crestins;False
+225916784;;True
+225916793;;True
+145018099;;False
+99725117;;False
+225917243;Avenida do Aeroporto;True
+207495210;;True
+95397938;;False
+95397970;;False
+95398005;;False
+163123405;;False
+95798204;Via Regional Interior;False
+95397977;;False
+25675888;;False
+25675883;;False
+24811507;;False
+99722701;Travessa Monte das Pedras;False
+225917246;;False
+130597486;Rua Justino Marques;False
+168970926;Rua da Telheira;False
+168970989;Rua da Telheira;False
+168971053;Rua da Telheira;False
+168971035;Rua da Telheira;False
+168971078;Rua da Telheira;False
+130597448;;False
+168970802;Estrada Nacional 107;True
+245329799;CREP - A41;False
+245338065;A41 Maia; A42 Felgueiras; Aeroporto; Leixões (carga); A1 Lisboa (Ponte do Freixo);False
+168971104;;False
+273248279;;False
+168970913;;True
+281465570;Rua Primeiro de Maio;True
+281465568;;True
+281465569;;True
+281467236;;True
+281467238;;True
+281467240;;True
+281467241;;True
+281467242;;True
+281467245;;True
+281467247;;True
+281467250;;True
+281467251;;True
+281467252;;True
+281467253;;True
+281467254;;True
+281467243;;True
+281471404;;True
+281543308;;True
+281543309;;True
+281543310;;True
+281543314;;True
+281543317;;True
+281543313;;True
+281543312;;True
+281543319;;True
+281543318;;True
+281543315;;True
+281543321;;True
+281543322;;True
+126028732;;True
+281543324;;True
+281543323;;True
+126028743;;True
+281545809;;True
+281843584;;True
+281848524;;True
+281865809;Travessa Professor Oliveira Andrade;True
+281860124;;False
+281860126;;False
+281860129;;False
+281860132;;False
+168970964;;False
+281860131;;False
+281860128;;False
+281860127;;False
+281860123;;False
+281860121;;False
+281860120;;False
+281883346;;False
+281886012;;False
+281886013;;False
+281890943;;False
+281890944;;False
+281936749;;False
+281883342;;False
+281883344;;False
+281883339;;False
+281843592;;False
+281467248;;False
+281944267;;False
+281944270;;False
+281944272;;False
+281944275;;False
+281955482;;False
+281955483;;False
+145018091;;False
+281944277;;False
+281944278;;False
+41116826;Rua Professor Oliveira Andrade;False
+281865814;;False
+41116828;Rua Professor Oliveira Andrade;False
+280999053;Rua Professor Oliveira Andrade;False
+281865811;;False
+251853870;Via Estruturante de Crestins;False
+281748514;;False
+280999052;Rua Professor Oliveira Andrade;False
+280999054;Rua Professor Oliveira Andrade;True
+281465572;;False
+281865813;;False
+41057962;;False
+281749134;;False
+228193789;;False
+99722702;Rua Monte das Pedras;False
+168970804;Estrada Nacional 107;False
+145018100;;False
+225916792;;False
+131901678;;False
+131901677;;False
+168971100;;False
+168971044;;False
+168970877;;True
+168970950;;True
+168970980;;True
+168971005;;True
+168970995;;True
+168971028;;False
+168971071;;False
+168970982;;True
+168970967;;True
+168970924;;False
+168970961;;False
+163123406;;False
+163123403;;False
+107537705;;False
+168970903;;True
+168971000;;True
+168971051;;True
+168970880;;False
+168970891;;True
+131901691;;True
+163123941;;False
+131901689;;False
+131901683;;False
+26310259;;False
+131901687;;False
+131901684;;False
+95389423;;False
+95389464;;False
+95389460;CREP - A41;False
+245329800;CREP - A41;False
+95389425;CREP - A41;False
+168970910;;False
+168971009;;False
+168970901;;False
+280999055;Rua Primeiro de Maio;False
+168970969;;True
+168970899;;True
+95398025;;False
+168971064;;False
+168971066;;False
+168971050;;False
+311426253;Rua de Cidres;True
+332583057;;True
+311426251;Rua Oriental;False
+311426252;Rua Oriental;False
+311426256;;False
+311426258;;False
+338548489;;False
+281967192;Rua do Escuteiro;False
+282037299;;False
+282037302;Estrada Nacional 107;False
+282037304;Estrada Nacional 107;False
+282073521;Rua Professor Oliveira Andrade;False
+282073517;Rua Monte das Pedras;False
+283410891;Rua Primeiro de Maio;False
+285228719;;False
+285800061;;False
+285800062;;False
+285800063;;False
+285800064;;False
+285800065;;False
+285800066;;False
+285800067;;False
+285805875;;False
+285888780;;False
+285997823;;False
+285997824;;False
+285997825;;False
+285997826;;False
+285997827;;False
+286000554;;True
+286000556;;True
+286000557;;True
+286071231;;False
+286071217;;False
+286071230;;False
+286071221;;False
+286071222;;False
+286071226;;False
+286072702;;False
+286072703;;False
+286087971;Avenida do Aeroporto;True
+286087970;Estrada Nacional 107;False
+286087972;;False
+286087607;Estrada Nacional 107;False
+286406878;;False
+293485378;;False
+293485377;Rua Justino Marques;False
+343084492;;False
+343084491;;False
+343084494;;False
+302976194;Rua do Rosmaninho;False
+302976326;;False
+302976327;;False
+302976329;;False
+306061222;;False
+306061226;;False
+306061228;;False
+306061229;;False
+306061230;;False
+306061233;;False
+306061227;;False
+306061224;Rua do Barreiro;False
+306061221;Rua do Barreiro;False
+306061225;;False
+306553908;;False
+306553892;;False
+306553896;;False
+306557655;;False
+306557657;;False
+306557658;;False
+306557663;;False
+307093662;Rua Oriental;True
+307093661;Estrada Nacional 107;True
+307093659;Rua Oriental;False
+307611396;;False
+307611403;;True
+307611404;;True
+307611394;;True
+307611392;;True
+307611393;;True
+307611982;;False
+307611983;;False
+307611984;;False
+307611985;;False
+307611402;;False
+307614278;;False
+307623970;;False
+307623971;;False
+307623967;;False
+307624633;;False
+307624631;;False
+307624632;;False
+307624386;;False
+307624387;;False
+307625170;;False
+307625781;;False
+307625782;;False
+307625780;;False
+286071225;;False
+313698499;;False
+313698500;;False
+354586336;;False
+354586337;;False
+354586335;;False
+354586334;;False
+357485591;Rua do Barreiro;False
+285997828;;False
+285997830;;False
+285997829;;False
+285997831;;False
+374866863;;True
+374866864;;True
+374866865;;True
+374866866;;True
+374866867;;True
+386578579;;False
+386578595;;False
+386578608;;True
+396619967;;False
+396620269;;False
+396620272;;True
+396620270;;True
+400298864;;False
+400298867;;False
+400298871;;False
+400298872;;False
+400298874;;False
+400298876;;False
+400298877;;False
+400298878;;False
+400315657;;False
+400315663;;False
+400315668;;False
+400315671;;False
+400315677;;False
+400315681;;False
+400315683;;False
+400315686;;False
+400298875;;False
+306553893;;False
+332578696;;False
+400315660;;False
+400315679;;False
+400315674;;False
+400315666;;False
+400315655;Avenida do Aeroporto;False
+400316950;Avenida do Aeroporto;True
+400316951;;False
+400349205;;False
+400349204;;False
+400349206;;False
+400349202;Partidas;False
+400351149;Avenida do Aeroporto;True
+400503031;P0;False
+400503032;P0;False
+407996119;;True
+407996121;;True
+407996123;;True
+407996516;;True
+407996120;;True
+407997374;;True
+408140130;;True
+408141685;;True
+408150826;;True
+408150827;;True
+408150823;;False
+408150825;;False
+408199762;;False
+408203572;;False
+408203571;;False
+408213512;;False
+408213514;;False
+408213515;;False
+408213516;;False
+408213517;;False
+408213518;;False
+408213513;;False
+408245261;;False
+408243230;;False
+408248114;;False
+408141696;;False
+408249815;;False
+286071219;;False
+408256044;;False
+408260239;;False
+408266116;;False
+408271327;;False
+408271329;;False
+408271331;;False
+408268560;;False
+408268562;;False
+408268563;Avenida do Aeroporto;True
+408268565;;True
+408268561;;True
+408268567;;False
+408268566;;False
+408270092;;False
+408270093;;False
+408270094;;False
+408276654;Chegadas;False
+408278235;;False
+408278240;;False
+408278241;;False
+408245262;;False
+408245263;;False
+408278234;;False
+286071224;;False
+408296287;;True
+408296291;;True
+408308086;;True
+408315258;;True
+408315120;;True
+408315121;;True
+307611398;;True
+307611395;;True
+408265960;;True
+408329892;;True
+408329893;;True
+408329896;;True
+408329897;;True
+408329898;;True
+408329899;;True
+408329900;;True
+408329902;;True
+408329903;;True
+408330436;;True
+408330438;;True
+408335501;;False
+408340667;;False
+408340669;;False
+408340670;;False
+408372083;;False
+408372086;;False
+408390796;P0;False
+408680034;P0;False
+408688004;;False
+408688006;;False
+408688007;;False
+408688009;;False
+408682411;P0;False
+408340668;;False
+408682412;P0;False
+408680884;P0;False
+409064255;;False
+409064256;;False
+409064257;;False
+409064258;;False

@@ -2,26 +2,26 @@
 #define NODE_H_
 
 #include <vector>
-
-#include "Subroad.h"
+#include <string>
+#include <iostream>
 
 class Subroad;
 
 class Node{
-	int ID;
+	unsigned long ID;
 	double lat_deg;
 	double lon_deg;
 	double lat_rad;
 	double lon_rad;
 
 public:
-	Node(int ID, double lat_deg, double lon_deg, double lat_rad, double lon_rad);
-	int getId() const;
+	Node(unsigned long ID, double lat_deg, double lon_deg, double lat_rad, double lon_rad);
+	unsigned long getId() const;
 	double getLatDeg() const;
 	double getLatRad() const;
 	double getLonDeg() const;
 	double getLonRad() const;
-	bool operator ==(const Node n1) const;
+	bool operator ==(const Node &n1) const;
 
 	friend class Edge;
 };

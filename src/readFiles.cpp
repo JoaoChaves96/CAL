@@ -2,22 +2,31 @@
 #include "Node.h"
 #include "Road.h"
 #include "Graph.h"
-#include "Subroad.h"
 
-Node * findNode(vector<Node * > nodes, int ID){
-	for (int i = 0; i< nodes.size(); i++){
-		if (nodes[i]->getId() == ID)
-			return nodes[i];
+float calcWeight(Node from, Node to){
+	int r = 6371; // raio da terra em kms
+	float dLat = to.getLatRad()-from.getLatRad();
+	float dLon = to.getLonRad()-from.getLonRad();
+	float a = sin(dLat/2)*sin(dLat/2) + cos(from.getLatRad()) * cos(to.getLatRad())*sin(dLon/2)*sin(dLon/2);
+	float c = 2 * atan2(sqrt(a), sqrt(1-a));
+	float d = r * c;
+
+	return d;
+}
+
+Node findNode(Graph<Node, Road> & g, unsigned long ID){
+	for (unsigned int i = 0; i< g.getVertexSet().size(); i++){
+		if (g.getVertexSet().at(i)->getInfo().getId() == ID){
+			return g.getVertexSet().at(i)->getInfo();
+		}
 	}
 }
 
 void readNodes(Graph<Node, Road> & g) {
 	ifstream inFile;
 
-	//vector<Vertex *> ret;
-
 	//Ler o ficheiro nos.txt
-	inFile.open("nos.txt");
+	inFile.open("nodes2.txt");
 
 	if (!inFile) {
 		cerr << "Unable to open file datafile.txt";
@@ -26,9 +35,8 @@ void readNodes(Graph<Node, Road> & g) {
 
 	std::string line;
 
-	int idNo = 0;
-	double lat_deg, lon_deg, lat_rad, lon_rad;
-
+	unsigned long idNo = 0;
+	double lat_deg = 0, lon_deg = 0, lat_rad = 0, lon_rad = 0;
 	while (std::getline(inFile, line)) {
 		std::stringstream linestream(line);
 		std::string data;
@@ -45,19 +53,18 @@ void readNodes(Graph<Node, Road> & g) {
 		linestream >> lon_rad;
 		Node n(idNo, lat_deg, lon_deg, lat_rad, lon_rad);
 		g.addVertex(n);
-		//ret.push_back(&n);
-
 	}
 
 	inFile.close();
 
+
 }
 
-void readEdges(vector<Node *> nodes, vector<Road *> roads) {
+void readEdges(Graph<Node, Road> & g) {
 	ifstream inFile;
 
 	//Ler o ficheiro subroads.txt
-	inFile.open("subroads.txt");
+	inFile.open("subroads2.txt");
 
 	if (!inFile) {
 		cerr << "Unable to open file datafile.txt";
@@ -66,8 +73,8 @@ void readEdges(vector<Node *> nodes, vector<Road *> roads) {
 
 	std::string line;
 
-	int roadID;
-	int node1ID, node2ID;
+	unsigned long roadID;
+	unsigned long node1ID, node2ID;
 
 	while (std::getline(inFile, line)) {
 		std::stringstream linestream(line);
@@ -80,11 +87,10 @@ void readEdges(vector<Node *> nodes, vector<Road *> roads) {
 		std::getline(linestream, data, ';'); // read up-to the first ; (discard ;).
 		linestream >> node2ID;
 
-		for (int i = 0; i < roads.size(); i++) {
-			if (roads[i]->getID() == roadID) {
-				//criar edge...
-			}
-		}
+		float weight = calcWeight(findNode(g, node1ID), findNode(g, node2ID));
+
+		Road r = readRoads(roadID);
+		g.addEdge1(findNode(g, node1ID), findNode(g, node2ID), weight, r);
 
 	}
 
@@ -92,13 +98,11 @@ void readEdges(vector<Node *> nodes, vector<Road *> roads) {
 
 }
 
-vector<Road *> readRoads() {
+Road readRoads(unsigned long roadID) {
 	ifstream inFile;
 
-	vector<Road *> ret;
-
 	//Ler o ficheiro nos.txt
-	inFile.open("roads.txt");
+	inFile.open("roads2.txt");
 
 	if (!inFile) {
 		cerr << "Unable to open file datafile.txt";
@@ -107,7 +111,7 @@ vector<Road *> readRoads() {
 
 	std::string line;
 
-	int idNo = 0;
+	unsigned long idNo = 0;
 	string name;
 	string two_way;
 
@@ -124,17 +128,15 @@ vector<Road *> readRoads() {
 
 		if (two_way == "FALSE"){
 			Road r(idNo, name, false);
-			ret.push_back(&r);
+			return r;
 		}
 		else{
 			Road r(idNo, name, true);
-			ret.push_back(&r);
+			return r;
 		}
 
 	}
 
 	inFile.close();
-
-	return ret;
 }
 

@@ -9,6 +9,7 @@
 #include <list>
 #include <limits>
 #include <cmath>
+#include <stdlib.h>
 using namespace std;
 
 template <class T, class U>
@@ -40,7 +41,8 @@ public:
 	Vertex(T in);
 	friend class Graph<T, U>;
 
-	void addEdge1(Vertex<T, U> *dest, double w);
+	vector<Edge1<T,U> > getAdj();
+	void addEdge1(Vertex<T, U> *dest, double w, U info);
 	bool removeEdge1To(Vertex<T, U> *d);
 
 	T getInfo() const;
@@ -54,6 +56,10 @@ public:
 	Vertex* path;
 };
 
+template <class T, class U>
+vector<Edge1<T,U> > Vertex<T, U>::getAdj(){
+	return adj;
+}
 
 template <class T, class U>
 struct vertex_greater_than {
@@ -86,8 +92,8 @@ Vertex<T, U>::Vertex(T in): info(in), visited(false), processing(false), indegre
 
 
 template <class T, class U>
-void Vertex<T, U>::addEdge1(Vertex<T, U> *dest, double w) {
-	Edge1<T,U> Edge1D(dest,w);
+void Vertex<T, U>::addEdge1(Vertex<T, U> *dest, double w, U info) {
+	Edge1<T,U> Edge1D(dest,w, info);
 	adj.push_back(Edge1D);
 }
 
@@ -126,14 +132,20 @@ class Edge1 {
 	double weight;
 	U info;
 public:
-	Edge1(Vertex<T,U> *d, double w);
+	Edge1(Vertex<T,U> *d, double w, U info);
 	void setInfo(T in);
 	friend class Graph<T,U>;
 	friend class Vertex<T,U>;
+	U getInfo();
 };
+template <class T, class U>
+U Edge1<T, U>::getInfo(){
+	return info;
+}
+
 
 template <class T, class U>
-Edge1<T,U>::Edge1(Vertex<T,U> *d, double w): dest(d), weight(w){}
+Edge1<T,U>::Edge1(Vertex<T,U> *d, double w, U info): dest(d), weight(w), info(info){}
 
 
 
@@ -160,7 +172,7 @@ class Graph {
 
 public:
 	bool addVertex(const T &in);
-	bool addEdge1(const T &sourc, const T &dest, double w);
+	bool addEdge1(const T &sourc, const T &dest, double w, U &info);
 	bool removeVertex(const T &in);
 	bool removeEdge1(const T &sourc, const T &dest);
 	vector<T> dfs() const;
@@ -215,7 +227,10 @@ bool Graph<T, U>::addVertex(const T &in) {
 	typename vector<Vertex<T, U>*>::iterator it= vertexSet.begin();
 	typename vector<Vertex<T, U>*>::iterator ite= vertexSet.end();
 	for (; it!=ite; it++)
-		if ((*it)->info == in) return false;
+		if ((*it)->info == in){
+			cout << in.getId() << endl;
+			return false;
+		}
 	Vertex<T, U> *v1 = new Vertex<T, U>(in);
 	vertexSet.push_back(v1);
 	return true;
@@ -248,7 +263,7 @@ bool Graph<T, U>::removeVertex(const T &in) {
 }
 
 template <class T, class U>
-bool Graph<T, U>::addEdge1(const T &sourc, const T &dest, double w) {
+bool Graph<T, U>::addEdge1(const T &sourc, const T &dest, double w, U &info) {
 	typename vector<Vertex<T, U>*>::iterator it= vertexSet.begin();
 	typename vector<Vertex<T, U>*>::iterator ite= vertexSet.end();
 	int found=0;
@@ -262,7 +277,7 @@ bool Graph<T, U>::addEdge1(const T &sourc, const T &dest, double w) {
 	}
 	if (found!=2) return false;
 	vD->indegree++;
-	vS->addEdge1(vD,w);
+	vS->addEdge1(vD,w, info);
 
 	return true;
 }
