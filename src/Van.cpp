@@ -1,8 +1,10 @@
 #include "Van.h"
 
-Van::Van(int capacity, int ID){
+static int id = 0;
+
+Van::Van(int capacity){
 	this->capacity = capacity;
-	this->ID = ID;
+	this->ID = id++;
 	this->ocupation = 0;
 }
 

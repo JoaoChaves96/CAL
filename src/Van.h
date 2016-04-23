@@ -6,7 +6,7 @@ class Van{
 	int ID;
 	int ocupation;
 public:
-	Van(int capacity, int ID);
+	Van(int capacity);
 
 	int getCapacity() const;
 

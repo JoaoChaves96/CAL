@@ -1,0 +1,22 @@
+/*
+ * Date.h
+ *
+ *  Created on: 23/04/2016
+ *      Author: Joao
+ */
+
+#ifndef DATE_H_
+#define DATE_H_
+
+class Date {
+	int hour;
+	int min;
+public:
+	Date();
+	Date(int hour, int min);
+	int getHour() const;
+	int getMin() const;
+	bool operator <(const Date d1) const;
+};
+
+#endif /* DATE_H_ */

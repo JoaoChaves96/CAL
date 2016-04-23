@@ -3,24 +3,21 @@
 
 #include <string>
 #include "Person.h"
+#include "Date.h"
 
 using namespace std;
 
 class Reservation{
 	Person responsible;
-	string arrivalDate;
-	int numPassengers;
+	Date arrivalDate;
 	string destination;
 
 public:
-	Reservation(Person responsible, string arrivalDate, int numPassengers, string destination);
+	Reservation(Person responsible, Date arrivalDate, string destination);
 	Person getResponsible() const;
-	string getArrivalDate() const;
-	int getnumPassengers() const;
+	Date getArrivalDate() const;
 	string getDestination() const;
-	void setArrivalDate(string date);
-	void setnumPassengers(int num);
-	void setDestination(string destination);
+	bool operator <(const Reservation r1) const;
 };
 
 #endif

@@ -12,7 +12,8 @@
 #include "Road.h"
 #include "Node.h"
 #include "readFiles.h"
-
+#include <string>
+#include <algorithm>
 
 using namespace std;
 
@@ -29,6 +30,8 @@ public:
 	void addVan(Van v1);
 	void loadGraph();
 	void showNodeID();
+	void loadReservations();
+	void loadVans();
 
 };
 
