@@ -14,5 +14,7 @@ int main(){
 	a1.loadReservations();
 	a1.loadVans();
 
+	a1.transportClient();
+
 	return 0;
 }

@@ -14,6 +14,7 @@
 #include "readFiles.h"
 #include <string>
 #include <algorithm>
+#include "Utilities.h"
 
 using namespace std;
 
@@ -32,6 +33,7 @@ public:
 	void showNodeID();
 	void loadReservations();
 	void loadVans();
+	void transportClient();
 
 };
 

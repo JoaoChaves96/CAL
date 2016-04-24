@@ -31,3 +31,9 @@ bool Date::operator <(const Date d1) const{
 	else
 		return hour < d1.getHour();
 }
+
+bool Date::operator ==(const Date d1) const{
+	if (hour == d1.getHour() && min == d1.getMin())
+		return true;
+	return false;
+}
