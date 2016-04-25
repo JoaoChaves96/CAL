@@ -26,7 +26,7 @@ void readNodes(Graph<Node, Road> & g) {
 	ifstream inFile;
 
 	//Ler o ficheiro nos.txt
-	inFile.open("nodes2.txt");
+	inFile.open("nodesDemo.txt");
 
 	if (!inFile) {
 		cerr << "Unable to open file datafile.txt";
@@ -48,11 +48,12 @@ void readNodes(Graph<Node, Road> & g) {
 		std::getline(linestream, data, ';'); // read up-to the first ; (discard ;).
 		linestream >> lon_deg;
 		std::getline(linestream, data, ';'); // read up-to the first ; (discard ;).
-		linestream >> lat_rad;
-		std::getline(linestream, data, ';'); // read up-to the first ; (discard ;).
 		linestream >> lon_rad;
+		std::getline(linestream, data, ';'); // read up-to the first ; (discard ;).
+		linestream >> lat_rad;
 		Node n(idNo, lat_deg, lon_deg, lat_rad, lon_rad);
 		g.addVertex(n);
+		cout<< idNo << " - " << lat_deg << " - "  << lon_deg << " - "  << lat_rad << " - "  << lon_rad << endl;
 	}
 
 	inFile.close();
@@ -64,7 +65,7 @@ void readEdges(Graph<Node, Road> & g) {
 	ifstream inFile;
 
 	//Ler o ficheiro subroads.txt
-	inFile.open("subroads2.txt");
+	inFile.open("subroadsDemo.txt");
 
 	if (!inFile) {
 		cerr << "Unable to open file datafile.txt";
@@ -91,6 +92,7 @@ void readEdges(Graph<Node, Road> & g) {
 
 		Road r = readRoads(roadID);
 		g.addEdge1(findNode(g, node1ID), findNode(g, node2ID), weight, r);
+		cout << r.getID() << " - "  << findNode(g, node1ID).getId() << " - "  << findNode(g, node2ID).getId()  << " - " << weight <<endl;
 
 	}
 
@@ -102,7 +104,7 @@ Road readRoads(unsigned long roadID) {
 	ifstream inFile;
 
 	//Ler o ficheiro nos.txt
-	inFile.open("roads2.txt");
+	inFile.open("roadsDemo.txt");
 
 	if (!inFile) {
 		cerr << "Unable to open file datafile.txt";
