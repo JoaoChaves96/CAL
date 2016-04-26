@@ -68,7 +68,6 @@ struct vertex_greater_than {
     }
 };
 
-
 template <class T, class U>
 bool Vertex<T, U>::removeEdge1To(Vertex<T, U> *d) {
 	d->indegree--; //adicionado do exercicio 5
@@ -138,10 +137,17 @@ public:
 	friend class Vertex<T,U>;
 	U getInfo();
 	double getWeight() const;
+	Vertex<T,U>  getDest() const;
 };
 template <class T, class U>
 U Edge1<T, U>::getInfo(){
 	return info;
+}
+
+template<class T, class U>
+Vertex<T,U>  Edge1<T, U>::getDest() const{
+	Vertex<T,U> v = *dest;
+	return v;
 }
 
 template<class T, class U>
@@ -204,7 +210,6 @@ public:
 	vector<T> getfloydWarshallPath(const T &origin, const T &dest);
 	void getfloydWarshallPathAux(int index1, int index2, vector<T> & res);
 };
-
 
 template <class T, class U>
 int Graph<T, U>::getNumVertex() const {
@@ -402,7 +407,7 @@ template <class T, class U>
 Vertex<T, U>* Graph<T, U>::getVertex(const T &v) const {
 	for(unsigned int i = 0; i < vertexSet.size(); i++)
 		if (vertexSet[i]->info == v) return vertexSet[i];
-	return;
+	return NULL;
 }
 
 template<class T, class U>
@@ -513,11 +518,11 @@ vector<T> Graph<T, U>::getPath(const T &origin, const T &dest){
 	Vertex<T, U>* v = getVertex(dest);
 
 	buffer.push_front(v->info);
-	while ( v->path != "" &&  v->path->info != origin) {
+	while ( v->path != NULL &&  v->path->info != origin) {
 		v = v->path;
 		buffer.push_front(v->info);
 	}
-	if( v->path != "" )
+	if( v->path != NULL )
 		buffer.push_front(v->path->info);
 
 
@@ -649,7 +654,7 @@ template<class T, class U>
 void Graph<T, U>::dijkstraShortestPath(const T &s) {
 
 	for(unsigned int i = 0; i < vertexSet.size(); i++) {
-		vertexSet[i]->path = "";
+		vertexSet[i]->path = NULL;
 		vertexSet[i]->dist = INT_INFINITY;
 		vertexSet[i]->processing = false;
 	}

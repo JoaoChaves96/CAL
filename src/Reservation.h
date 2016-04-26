@@ -10,13 +10,13 @@ using namespace std;
 class Reservation{
 	Person responsible;
 	Date arrivalDate;
-	string destination;
+	int destination;
 
 public:
-	Reservation(Person responsible, Date arrivalDate, string destination);
+	Reservation(Person responsible, Date arrivalDate, int destination);
 	Person getResponsible() const;
 	Date getArrivalDate() const;
-	string getDestination() const;
+	int getDestination() const;
 	bool operator <(const Reservation r1) const;
 };
 

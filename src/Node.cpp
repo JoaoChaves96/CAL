@@ -33,3 +33,7 @@ double Node::getLonRad() const {
 bool Node::operator ==(const Node &n1) const{
 	return (ID == n1.getId());
 }
+
+bool Node::operator !=(const Node &n1) const{
+	return (ID != n1.getId());
+}

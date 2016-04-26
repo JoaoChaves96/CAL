@@ -22,6 +22,7 @@ public:
 	double getLonDeg() const;
 	double getLonRad() const;
 	bool operator ==(const Node &n1) const;
+	bool operator !=(const Node &n1) const;
 
 	friend class Edge;
 };

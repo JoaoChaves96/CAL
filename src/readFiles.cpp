@@ -53,7 +53,6 @@ void readNodes(Graph<Node, Road> & g) {
 		linestream >> lat_rad;
 		Node n(idNo, lat_deg, lon_deg, lat_rad, lon_rad);
 		g.addVertex(n);
-		cout<< idNo << " - " << lat_deg << " - "  << lon_deg << " - "  << lat_rad << " - "  << lon_rad << endl;
 	}
 
 	inFile.close();
@@ -91,8 +90,10 @@ void readEdges(Graph<Node, Road> & g) {
 		float weight = calcWeight(findNode(g, node1ID), findNode(g, node2ID));
 
 		Road r = readRoads(roadID);
+		if(r.is_two_way())
+			g.addEdge1(findNode(g, node2ID), findNode(g, node1ID), weight, r);
+
 		g.addEdge1(findNode(g, node1ID), findNode(g, node2ID), weight, r);
-		cout << r.getID() << " - "  << findNode(g, node1ID).getId() << " - "  << findNode(g, node2ID).getId()  << " - " << weight <<endl;
 
 	}
 
@@ -142,5 +143,36 @@ Road readRoads(unsigned long roadID) {
 	}
 
 	inFile.close();
+}
+
+vector<string> getHotels(){
+	ifstream inFile;
+
+	//Ler o ficheiro nos.txt
+	inFile.open("hotel.txt");
+
+	if (!inFile) {
+		cerr << "Unable to open file datafile.txt";
+		exit(1);
+	}
+
+	std::string line;
+
+	vector<string> hotels;
+	string hotel_name;
+
+	while (std::getline(inFile, line)) {
+		std::string data;
+
+		std::stringstream s(line);
+		std::getline(s, data, ';'); // read up-to the first ; (discard ;).
+		std::getline(s, hotel_name, ';'); // read up-to the first ; (discard ;).
+
+		hotels.push_back(hotel_name);
+
+	}
+
+	inFile.close();
+	return hotels;
 }
 

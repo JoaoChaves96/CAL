@@ -47,7 +47,7 @@ void AirShuttle::loadReservations() {
 	string name;
 	string dateh;
 	string datem;
-	string dest;
+	int dest;
 
 	while (std::getline(inFile, line)) {
 		std::stringstream linestream(line);
@@ -64,7 +64,7 @@ void AirShuttle::loadReservations() {
 		std::getline(linestream, data, ';'); // read up-to the first ; (discard ;).
 		linestream >> min;
 		std::getline(linestream, data, ';'); // read up-to the first ; (discard ;).
-		std::getline(linestream, dest); // read up-to the first ; (discard ;).
+		linestream >> dest;
 
 		Person p1(name, nif);
 		Date d(hour, min);
@@ -130,7 +130,7 @@ void AirShuttle::transportClient() {
 	//Date out = reservations.at(reservations.size() - 1).getArrivalDate();
 
 
-	for (int i = 0; i < this->vans.size(); i++) {
+	/*for (int i = 0; i < this->vans.size(); i++) {
 		if (vans.at(i).getRes().size() == 0)
 			break;
 		Date out = vans.at(i).getRes().at( vans.at(i).getRes().size() - 1).getArrivalDate();
@@ -139,6 +139,7 @@ void AirShuttle::transportClient() {
 			for (int j = 0; j < vans.at(i).getRes().size(); j++) {
 				cout << endl << vans.at(i).getRes().at(j).getResponsible().getName() << "   ---------->   "  << vans.at(i).getRes().at(j).getDestination();
 			}
-	}
+	}*/
+	vans.at(0).getPath(g);
 
 }

@@ -1,6 +1,6 @@
 #include "Reservation.h"
 
-Reservation::Reservation(Person responsible, Date arrivalDate, string destination){
+Reservation::Reservation(Person responsible, Date arrivalDate, int destination){
 	this->responsible = responsible;
 	this->arrivalDate = arrivalDate;
 	this->destination = destination;
@@ -14,7 +14,7 @@ Date Reservation::getArrivalDate() const{
 	return arrivalDate;
 }
 
-string Reservation::getDestination() const{
+int Reservation::getDestination() const{
 	return destination;
 }
 

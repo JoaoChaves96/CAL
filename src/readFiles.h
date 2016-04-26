@@ -18,5 +18,6 @@ Road readRoads(unsigned long roadID);
 void readEdges(Graph<Node, Road> & g);
 Node findNode(Graph<Node, Road> & g, unsigned long ID);
 float calcWeight(Node from, Node to);
+vector<string> getHotels();
 
 #endif

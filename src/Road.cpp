@@ -21,3 +21,11 @@ void Road::block(){
 bool Road::getState() const{
 	return acessible;
 }
+
+bool Road::is_two_way() const{
+	return two_way;
+}
+
+bool Road::operator ==(const Road r1) const{
+	return ID == r1.getID();
+}

@@ -2,6 +2,10 @@
 #define VAN_H_
 
 #include "Reservation.h"
+#include "Graph.h"
+#include "Road.h"
+#include "Node.h"
+#include "ReadFiles.h"
 #include <vector>
 
 class Van{
@@ -28,6 +32,8 @@ public:
 	void addRes(Reservation res);
 
 	bool is_Full() const;
+
+	void getPath(Graph<Node, Road> &g) const;
 };
 
 #endif
