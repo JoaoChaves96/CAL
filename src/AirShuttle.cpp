@@ -123,44 +123,58 @@ void AirShuttle::loadVans() {
 	}
 
 	inFile.close();
-}
 
-void AirShuttle::transportClient() {
-
+	vector<Reservation> temp = reservations;
 	int l = 0;
-	while (!reservations.empty() && l < vans.size()) {
+	while (!temp.empty() && l < vans.size()) {
 		int i = 0;
-		while (i < vans.at(l).getCapacity() && !reservations.empty()) {
+		while (i < vans.at(l).getCapacity() && !temp.empty()) {
 			int j = 0;
 			for (int k = 0; k < vans.at(l).getRes().size(); k++) {
 				if (exceedsTime(vans.at(l).getRes().at(k),
-						reservations.at(0))) {
+						temp.at(0))) {
 					j++;
 				}
 			}
 			if (j == 0) {
-				vans.at(l).addRes(reservations.at(0));
-				reservations.erase(reservations.begin());
+				vans.at(l).addRes(temp.at(0));
+				temp.erase(temp.begin());
 				i++;
 			} else
 				break;
 		}
 		l++;
 	}
+}
+
+void AirShuttle::transportClient() {
 
 	//Date out = reservations.at(reservations.size() - 1).getArrivalDate();
 
-
-	/*for (int i = 0; i < this->vans.size(); i++) {
+	vector <string> hotels = getHotels();
+	for (int i = 0; i < this->vans.size(); i++) {
 		if (vans.at(i).getRes().size() == 0)
 			break;
 		Date out = vans.at(i).getRes().at( vans.at(i).getRes().size() - 1).getArrivalDate();
 		cout << endl << endl << "Carrinha " << vans.at(i).getId() << ": Hora de partida: " << out.getHour() << ":" << out.getMin() << "h" << endl;
 		cout  << endl << "Clientes transportados:" << endl;
 			for (int j = 0; j < vans.at(i).getRes().size(); j++) {
-				cout << endl << vans.at(i).getRes().at(j).getResponsible().getName() << "   ---------->   "  << vans.at(i).getRes().at(j).getDestination();
+				cout << endl << vans.at(i).getRes().at(j).getResponsible().getName() << "   ---------->   "  << hotels.at(vans.at(i).getRes().at(j).getDestination()-1);
 			}
-	}*/
-	vans.at(0).getPath(g);
+	}
+	cout << endl << endl << endl;
+	//vans.at(0).getPath(g);
 
+}
+
+void AirShuttle::showPath(){
+	for (int i =0 ; i< vans.size(); i++){
+		cout << "Percurso da carrinha " << vans.at(i).getId() << endl << endl;
+		vans.at(i).getPath(g);
+		cout << endl << endl;
+	}
+
+	cout << endl << endl;
+
+	getchar();
 }
