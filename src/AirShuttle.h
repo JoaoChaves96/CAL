@@ -22,6 +22,7 @@ using namespace std;
 class AirShuttle{
 	vector<Reservation> reservations;
 	vector<Van> vans;
+	vector<string> hotels;
 
 public:
 	AirShuttle();

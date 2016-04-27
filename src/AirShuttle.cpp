@@ -35,7 +35,7 @@ void AirShuttle::addVan(Van v) {
  * Reads and loads the graph info
  */
 void AirShuttle::loadGraph() {
-	vector<string> hotels = getHotels();
+	hotels = getHotels();
 
 	gv = new GraphViewer(600, 600, false);
 	gv->createWindow(700, 700);
@@ -48,7 +48,6 @@ void AirShuttle::loadGraph() {
 	readEdges(g, gv);
 
 	for(int h=0; h<hotels.size(); h++){
-		//cout<< h << endl;
 		gv->setVertexLabel(h+1, hotels.at(h));
 		if(h!=0){
 			gv->setVertexIcon(h+1,"hotel.png");
@@ -187,9 +186,9 @@ void AirShuttle::transportClient() {
 		Date out = vans.at(i).getRes().at( vans.at(i).getRes().size() - 1).getArrivalDate();
 		cout << endl << endl << "Carrinha " << vans.at(i).getId() << ": Hora de partida: " << out.getHour() << ":" << out.getMin() << "h" << endl;
 		cout  << endl << "Clientes transportados:" << endl;
-			for (int j = 0; j < vans.at(i).getRes().size(); j++) {
-				cout << endl << vans.at(i).getRes().at(j).getResponsible().getName() << "   ---------->   "  << hotels.at(vans.at(i).getRes().at(j).getDestination()-1);
-			}
+		for (int j = 0; j < vans.at(i).getRes().size(); j++) {
+			cout << endl << vans.at(i).getRes().at(j).getResponsible().getName() << "   ---------->   "  << hotels.at(vans.at(i).getRes().at(j).getDestination()-1);
+		}
 	}
 	cout << endl << endl << endl;
 	//vans.at(0).getPath(g);
@@ -202,11 +201,21 @@ void AirShuttle::transportClient() {
 void AirShuttle::showPath(){
 	for (int i =0 ; i< vans.size(); i++){
 		cout << "Percurso da carrinha " << vans.at(i).getId() << endl << endl;
-		vans.at(i).getPath(g);
+		vans.at(i).getPath(g, gv);
 		cout << endl << endl;
+		getchar();
+		for(int j=0;j<g.getVertexSet().size()*2; j++){
+			gv->setEdgeColor(j+1, "blue");
+		}
+		for(int h=0; h<hotels.size(); h++){
+			gv->setVertexLabel(h+1, hotels.at(h));
+			if(h!=0){
+				gv->setVertexIcon(h+1,"hotel.png");
+			}
+		}
+
+		gv->rearrange();
+
 	}
-
 	cout << endl << endl;
-
-	getchar();
 }
