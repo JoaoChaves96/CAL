@@ -33,7 +33,7 @@ int ReservationsMenu(AirShuttle a1){
 	system("cls");
 	vector<string> hotels = getHotels();
 
-	cout << setw(8) << "Name" << setw(15) << "NIF" << setw(20) << "ArrivalDate" << setw(25) << "Destination" << endl << endl;
+	cout << setw(8) << "Name" << setw(15) << "NIF" << setw(20) << "ArrivalDate" << setw(30) << "Destination" << endl << endl;
 
 
 	for (int i = 0; i < a1.getReservations().size(); i++){
