@@ -19,8 +19,29 @@ void AirShuttle::addVan(Van v) {
 }
 
 void AirShuttle::loadGraph() {
-	readNodes(g);
-	readEdges(g);
+	vector<string> hotels = getHotels();
+
+	gv = new GraphViewer(600, 600, false);
+	gv->createWindow(700, 700);
+
+	gv->defineEdgeColor("blue");
+	gv->defineVertexColor("yellow");
+	gv->defineEdgeCurved(false);
+
+	readNodes(g, gv);
+	readEdges(g, gv);
+
+	for(int h=0; h<hotels.size(); h++){
+		//cout<< h << endl;
+		gv->setVertexLabel(h+1, hotels.at(h));
+		if(h!=0){
+			gv->setVertexIcon(h+1,"hotel.png");
+		} else {
+			gv->setVertexIcon(h+1,"airport.png");
+		}
+	}
+
+	gv->rearrange();
 }
 
 void AirShuttle::showNodeID() {
@@ -124,7 +145,7 @@ void AirShuttle::transportClient() {
 			} else
 				break;
 		}
-			l++;
+		l++;
 	}
 
 	//Date out = reservations.at(reservations.size() - 1).getArrivalDate();

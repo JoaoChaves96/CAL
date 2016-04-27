@@ -2,6 +2,7 @@
 #include "Node.h"
 #include "Road.h"
 #include "Graph.h"
+#include "graphviewer.h"
 
 float calcWeight(Node from, Node to){
 	int r = 6371; // raio da terra em kms
@@ -22,7 +23,7 @@ Node findNode(Graph<Node, Road> & g, unsigned long ID){
 	}
 }
 
-void readNodes(Graph<Node, Road> & g) {
+void readNodes(Graph<Node, Road> & g, GraphViewer *gv) {
 	ifstream inFile;
 
 	//Ler o ficheiro nos.txt
@@ -53,6 +54,7 @@ void readNodes(Graph<Node, Road> & g) {
 		linestream >> lat_rad;
 		Node n(idNo, lat_deg, lon_deg, lat_rad, lon_rad);
 		g.addVertex(n);
+		gv->addNode(idNo,800-(((lon_deg)-(long)(lon_deg))*-1000),800-(((lat_deg)-(long)(lat_deg))*1000));
 	}
 
 	inFile.close();
@@ -60,7 +62,7 @@ void readNodes(Graph<Node, Road> & g) {
 
 }
 
-void readEdges(Graph<Node, Road> & g) {
+void readEdges(Graph<Node, Road> & g, GraphViewer *gv) {
 	ifstream inFile;
 
 	//Ler o ficheiro subroads.txt
@@ -88,8 +90,8 @@ void readEdges(Graph<Node, Road> & g) {
 		linestream >> node2ID;
 
 		float weight = calcWeight(findNode(g, node1ID), findNode(g, node2ID));
-
-		Road r = readRoads(roadID);
+		gv->addEdge(roadID,node1ID,node2ID, EdgeType::UNDIRECTED);
+		Road r = readRoads(roadID, gv);
 		if(r.is_two_way())
 			g.addEdge1(findNode(g, node2ID), findNode(g, node1ID), weight, r);
 
@@ -101,7 +103,7 @@ void readEdges(Graph<Node, Road> & g) {
 
 }
 
-Road readRoads(unsigned long roadID) {
+Road readRoads(unsigned long roadID, GraphViewer *gv) {
 	ifstream inFile;
 
 	//Ler o ficheiro nos.txt
@@ -139,7 +141,7 @@ Road readRoads(unsigned long roadID) {
 			return r;
 		}
 		}
-
+		gv->setEdgeLabel(idNo,name);
 	}
 
 	inFile.close();
@@ -148,7 +150,7 @@ Road readRoads(unsigned long roadID) {
 vector<string> getHotels(){
 	ifstream inFile;
 
-	//Ler o ficheiro nos.txt
+	//Ler o ficheiro hotel.txt
 	inFile.open("hotel.txt");
 
 	if (!inFile) {

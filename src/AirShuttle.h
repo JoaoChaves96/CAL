@@ -11,6 +11,7 @@
 #include "Graph.h"
 #include "Road.h"
 #include "Node.h"
+#include "graphviewer.h"
 #include "readFiles.h"
 #include <string>
 #include <algorithm>
@@ -25,6 +26,7 @@ class AirShuttle{
 public:
 	AirShuttle();
 	Graph<Node, Road> g;
+	GraphViewer *gv;
 	vector<Reservation> getReservations();
 	vector<Van> getVans();
 	void addReservation(Reservation r);

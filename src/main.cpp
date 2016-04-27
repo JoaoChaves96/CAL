@@ -38,7 +38,8 @@ int main(){
 	a1.loadVans();
 
 	a1.transportClient();
-	getHotels();
+	//getHotels();
+	getchar();
 
 	return 0;
 }
