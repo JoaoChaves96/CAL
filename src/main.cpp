@@ -7,8 +7,13 @@
 
 
 using namespace std;
+
+
 int mainMenu(AirShuttle a1);
 
+/**
+ * Menu of the vans
+ */
 int VansMenu(AirShuttle a1){
 	system("cls");
 
@@ -21,6 +26,9 @@ int VansMenu(AirShuttle a1){
 	return 0;
 }
 
+/**
+ * Menu of the reservations
+ */
 int ReservationsMenu(AirShuttle a1){
 	system("cls");
 	vector<string> hotels = getHotels();
@@ -42,6 +50,9 @@ int ReservationsMenu(AirShuttle a1){
 	return 0;
 }
 
+/**
+ * Main menu
+ */
 int mainMenu(AirShuttle a1){
 
 	int option;

@@ -5,6 +5,9 @@ Person::Person(){
 	this->NIF = 0;
 }
 
+/**
+ * Person constructor
+ */
 Person::Person(string name, int NIF){
 	this->name = name;
 	this->NIF = NIF;

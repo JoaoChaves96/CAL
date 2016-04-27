@@ -2,6 +2,9 @@
 
 using namespace std;
 
+/**
+ * Node constructor
+ */
 Node::Node(unsigned long ID, double lat_deg, double lon_deg, double lat_rad, double lon_rad){
 	this->ID = ID;
 	this->lat_deg = lat_deg;

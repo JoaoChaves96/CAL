@@ -1,5 +1,8 @@
 #include "Reservation.h"
 
+/**
+ * Reservation constructor
+ */
 Reservation::Reservation(Person responsible, Date arrivalDate, int destination){
 	this->responsible = responsible;
 	this->arrivalDate = arrivalDate;

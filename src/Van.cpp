@@ -2,6 +2,9 @@
 
 static int id = 0;
 
+/**
+ * Van constructor
+ */
 Van::Van(int capacity){
 	this->capacity = capacity;
 	this->ID = id++;

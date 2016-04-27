@@ -1,5 +1,8 @@
 #include "Road.h"
 
+/**
+ * Road constructor
+ */
 Road::Road(unsigned long ID, string name, bool two_way){
 	this->ID = ID;
 	this->name = name;

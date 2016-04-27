@@ -12,6 +12,9 @@ Date::Date(){
 	this->min = 0;
 }
 
+/**
+ * Date constructor
+ */
 Date::Date(int hour, int min) {
 	this->hour = hour;
 	this->min = min;

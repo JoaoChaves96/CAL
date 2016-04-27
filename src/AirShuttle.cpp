@@ -3,21 +3,37 @@
 AirShuttle::AirShuttle() {
 }
 
+/**
+ * Returns vector with all the reservations
+ */
 vector<Reservation> AirShuttle::getReservations() {
 	return reservations;
 }
+
+/**
+ * Returns vector with all the vans
+ */
 vector<Van> AirShuttle::getVans() {
 	return vans;
 }
 
+/**
+ * Adds a new reservation to the AirShuttle
+ */
 void AirShuttle::addReservation(Reservation r) {
 	reservations.push_back(r);
 }
 
+/**
+ * Adds a van to the AirShuttle
+ */
 void AirShuttle::addVan(Van v) {
 	vans.push_back(v);
 }
 
+/**
+ * Reads and loads the graph info
+ */
 void AirShuttle::loadGraph() {
 	vector<string> hotels = getHotels();
 
@@ -44,6 +60,10 @@ void AirShuttle::loadGraph() {
 	gv->rearrange();
 }
 
+/**
+ * Auxiliar function
+ * Returns the ID of the nodes
+ */
 void AirShuttle::showNodeID() {
 	for (int i = 0; i < g.getVertexSet().size(); i++) {
 		if (g.getVertexSet().at(i)->getAdj().size() != 0)
@@ -51,6 +71,9 @@ void AirShuttle::showNodeID() {
 	}
 }
 
+/**
+ * loads the reservations
+ */
 void AirShuttle::loadReservations() {
 	ifstream inFile;
 
@@ -99,6 +122,9 @@ void AirShuttle::loadReservations() {
 	inFile.close();
 }
 
+/**
+ * loads the vans
+ */
 void AirShuttle::loadVans() {
 	ifstream inFile;
 
@@ -147,6 +173,9 @@ void AirShuttle::loadVans() {
 	}
 }
 
+/**
+ * Shows the passengers each van will transport and the time they will leave the airport
+ */
 void AirShuttle::transportClient() {
 
 	//Date out = reservations.at(reservations.size() - 1).getArrivalDate();
@@ -167,6 +196,9 @@ void AirShuttle::transportClient() {
 
 }
 
+/**
+ * Shows the path of each van
+ */
 void AirShuttle::showPath(){
 	for (int i =0 ; i< vans.size(); i++){
 		cout << "Percurso da carrinha " << vans.at(i).getId() << endl << endl;
