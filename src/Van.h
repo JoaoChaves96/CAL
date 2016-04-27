@@ -33,7 +33,7 @@ public:
 
 	bool is_Full() const;
 
-	void getPath(Graph<Node, Road> &g) const;
+	void getPath(Graph<Node, Road> &g, GraphViewer *gv) const;
 };
 
 #endif

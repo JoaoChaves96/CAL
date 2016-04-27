@@ -47,7 +47,7 @@ bool Van::is_Full() const{
 	return isFull;
 }
 
-void Van::getPath(Graph<Node, Road> &g) const{
+void Van::getPath(Graph<Node, Road> &g, GraphViewer *gv) const{
 	Node n1 = g.getVertexSet().at(0)->getInfo();
 	g.dijkstraShortestPath(n1);
 	vector <Node> dest;
@@ -74,7 +74,7 @@ void Van::getPath(Graph<Node, Road> &g) const{
 			}
 		}
 		for (int k = 1; k<g.getPath(orig, destin).size(); k++){
-				path.push_back(g.getPath(orig, destin).at(k));
+			path.push_back(g.getPath(orig, destin).at(k));
 		}
 		orig = destin;
 		g.dijkstraShortestPath(dest.at(j));
@@ -83,6 +83,7 @@ void Van::getPath(Graph<Node, Road> &g) const{
 	for (int p = 0; p < g.getVertex(n1)->getAdj().size(); p++){
 		if (g.getVertex(path.at(0).getInfo())->getInfo().getId() == g.getVertex(n1)->getAdj().at(p).getDest().getInfo().getId()){
 			cout <<  g.getVertex(n1)->getAdj().at(p).getInfo().getName() << endl;
+			gv->setEdgeColor(g.getVertex(n1)->getAdj().at(p).getInfo().getID(), "green");
 			break;
 		}
 	}
@@ -94,17 +95,22 @@ void Van::getPath(Graph<Node, Road> &g) const{
 				if(res.at(v).getDestination() == path.at(l).getInfo().getId())
 					found = true;
 			}
-			if (found)
+			if (found){
 				cout << hotels.at(path.at(l).getInfo().getId() - 1) << endl;
+				gv->setVertexIcon(path.at(l).getInfo().getId(),"hotel_visit.png");
+			}
 		}
 		for (int p = 0; p < g.getVertex(path.at(l).getInfo())->getAdj().size(); p++){
 			if (g.getVertex(path.at(l+1).getInfo())->getInfo().getId() == g.getVertex(path.at(l).getInfo())->getAdj().at(p).getDest().getInfo().getId()){
 				cout <<  g.getVertex(path.at(l).getInfo())->getAdj().at(p).getInfo().getName() << endl;
+				gv->setEdgeColor(g.getVertex(path.at(l).getInfo())->getAdj().at(p).getInfo().getID(), "green");
 				break;
 			}
 		}
 	}
 
 	cout << hotels.at(path.at(path.size() - 1).getInfo().getId() - 1) << endl;
+	gv->setVertexIcon(path.at(path.size() - 1).getInfo().getId(),"hotel_visit.png");
+	gv->rearrange();
 
 }

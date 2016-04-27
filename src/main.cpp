@@ -76,6 +76,7 @@ int mainMenu(AirShuttle a1){
 		VansMenu(a1);
 		break;
 	case 3:
+		getchar();
 		a1.showPath();
 		mainMenu(a1);
 		break;
@@ -94,7 +95,6 @@ int main(){
 
 	mainMenu(a1);
 
-	getchar();
 
 	return 0;
 }
