@@ -178,7 +178,8 @@ void AirShuttle::loadVans() {
 void AirShuttle::transportClient() {
 
 	//Date out = reservations.at(reservations.size() - 1).getArrivalDate();
-
+	string clients;
+	string reservation;
 	vector <string> hotels = getHotels();
 	for (int i = 0; i < this->vans.size(); i++) {
 		if (vans.at(i).getRes().size() == 0)
@@ -186,12 +187,33 @@ void AirShuttle::transportClient() {
 		Date out = vans.at(i).getRes().at( vans.at(i).getRes().size() - 1).getArrivalDate();
 		cout << endl << endl << "Carrinha " << vans.at(i).getId() << ": Hora de partida: " << out.getHour() << ":" << out.getMin() << "h" << endl;
 		cout  << endl << "Clientes transportados:" << endl;
+		stringstream ss;
+		ss << vans.at(i).getId();
+		clients += ss.str()+ "{";
+		reservation += ss.str() + "{";
 		for (int j = 0; j < vans.at(i).getRes().size(); j++) {
 			cout << endl << vans.at(i).getRes().at(j).getResponsible().getName() << "   ---------->   "  << hotels.at(vans.at(i).getRes().at(j).getDestination()-1);
+			clients += vans.at(i).getRes().at(j).getResponsible().getName();
+			reservation += hotels.at(vans.at(i).getRes().at(j).getDestination()-1);
+					if(j<vans.at(i).getRes().size()-1){
+						clients += ";";
+						reservation += ";";
+					}
 		}
+		clients += "}";
+		reservation += "}";
 	}
 	cout << endl << endl << endl;
 	//vans.at(0).getPath(g);
+	ofstream myfile;
+
+	myfile.open ("clients.txt");
+	myfile << clients;
+	myfile.close();
+
+	myfile.open ("reservation.txt");
+	myfile << reservation;
+	myfile.close();
 
 }
 

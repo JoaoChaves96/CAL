@@ -40,7 +40,7 @@ int ReservationsMenu(AirShuttle a1){
 		cout << setw(10) << a1.getReservations().at(i).getResponsible().getName();
 		cout << setw(18) << a1.getReservations().at(i).getResponsible().getNIF();
 		cout << setw(12) << a1.getReservations().at(i).getArrivalDate().getHour() << ":" << a1.getReservations().at(i).getArrivalDate().getMin() <<
-"h";
+				"h";
 		cout << setw(35) << hotels.at(a1.getReservations().at(i).getDestination() - 1) << endl;
 	}
 
@@ -66,7 +66,11 @@ int mainMenu(AirShuttle a1){
 	cout << endl << endl << "1 - Reservations" << endl;
 	cout << "2 - Vans" << endl;
 	cout << "3 - Transport passengers" << endl;
-	cout << "4 - Exit" << endl;
+	cout << "4 - Pesquisa Carrinha Exata" << endl;
+	cout << "5 - Pesquisa Carrinha Aproximada" << endl;
+	cout << "6 - Pesquisa Cliente Exata" << endl;
+	cout << "7 - Pesquisa Cliente Aproximada" << endl;
+	cout << "8 - Exit" << endl;
 	cin >> option;
 	switch (option){
 	case 1:
@@ -81,6 +85,22 @@ int mainMenu(AirShuttle a1){
 		mainMenu(a1);
 		break;
 	case 4:
+
+		mainMenu(a1);
+		break;
+	case 5:
+
+		mainMenu(a1);
+		break;
+	case 6:
+
+		mainMenu(a1);
+		break;
+	case 7:
+
+		mainMenu(a1);
+		break;
+	case 8:
 		exit(0);
 		break;
 	}
