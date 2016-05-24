@@ -180,7 +180,9 @@ void AirShuttle::transportClient() {
 	//Date out = reservations.at(reservations.size() - 1).getArrivalDate();
 	string clients;
 	string reservation;
+	vector<int> hotVisited;
 	vector <string> hotels = getHotels();
+	boolean write =true;
 	for (int i = 0; i < this->vans.size(); i++) {
 		if (vans.at(i).getRes().size() == 0)
 			break;
@@ -193,18 +195,33 @@ void AirShuttle::transportClient() {
 		reservation += ss.str() + "{";
 		for (int j = 0; j < vans.at(i).getRes().size(); j++) {
 			cout << endl << vans.at(i).getRes().at(j).getResponsible().getName() << "   ---------->   "  << hotels.at(vans.at(i).getRes().at(j).getDestination()-1);
+			for(int x=0; x<hotVisited.size(); x++){
+				if(hotVisited[x]==vans.at(i).getRes().at(j).getDestination()-1){
+					write=false;
+				}
+			}
+			if(write){
+				if(hotVisited.size()>0){
+					reservation += ";";
+				}
+				hotVisited.push_back(vans.at(i).getRes().at(j).getDestination()-1);
+				reservation += hotels.at(vans.at(i).getRes().at(j).getDestination()-1);
+			}
 			clients += vans.at(i).getRes().at(j).getResponsible().getName();
-			reservation += hotels.at(vans.at(i).getRes().at(j).getDestination()-1);
-					if(j<vans.at(i).getRes().size()-1){
-						clients += ";";
-						reservation += ";";
-					}
+			if(j<vans.at(i).getRes().size()-1){
+				clients += ";";
+
+			}
+			write=true;
+
 		}
 		clients += "}";
 		reservation += "}";
+		hotVisited.clear();
 	}
 	cout << endl << endl << endl;
 	//vans.at(0).getPath(g);
+
 	ofstream myfile;
 
 	myfile.open ("clients.txt");

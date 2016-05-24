@@ -1,1 +1,1 @@
-0{Hotel Portas de Santa Rita;Hotel Vila Gale Porto;BessaHotel Boavista;Hotel Star inn;Hotel Portas de Santa Rita}1{Hotel Premium Porto Aeroporto}2{Intercontinental Porto}3{Intercontinental Porto}4{BessaHotel Boavista}5{Hotel Star inn}
+0{Hotel Portas de Santa Rita;Hotel Vila Gale Porto;BessaHotel Boavista;Hotel Star inn}1{Hotel Premium Porto Aeroporto}2{Intercontinental Porto}3{Intercontinental Porto}4{BessaHotel Boavista}5{Hotel Star inn}
