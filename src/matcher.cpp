@@ -68,6 +68,7 @@ int numStringMatching(string filename, string toSearch){
 					cout << "VAN: " << van << endl;
 					cout << endl << endl;
 					return -1;
+					//commit
 				}
 				line2="";
 

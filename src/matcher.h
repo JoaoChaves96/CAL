@@ -5,6 +5,7 @@
 #include <sstream>
 
 using namespace std;
+//teste
 
 int numStringMatching(string filename, string toSearch);
 
