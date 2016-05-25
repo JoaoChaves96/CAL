@@ -192,7 +192,7 @@ void AirShuttle::transportClient() {
 		stringstream ss;
 		ss << vans.at(i).getId();
 		clients += ss.str()+ "{";
-		reservation += ss.str() + "{";
+		reservation += ss.str() + "{;";
 		for (int j = 0; j < vans.at(i).getRes().size(); j++) {
 			cout << endl << vans.at(i).getRes().at(j).getResponsible().getName() << "   ---------->   "  << hotels.at(vans.at(i).getRes().at(j).getDestination()-1);
 			for(int x=0; x<hotVisited.size(); x++){
@@ -201,11 +201,8 @@ void AirShuttle::transportClient() {
 				}
 			}
 			if(write){
-				if(hotVisited.size()>0){
-					reservation += ";";
-				}
 				hotVisited.push_back(vans.at(i).getRes().at(j).getDestination()-1);
-				reservation += hotels.at(vans.at(i).getRes().at(j).getDestination()-1);
+				reservation += hotels.at(vans.at(i).getRes().at(j).getDestination()-1) + ";";
 			}
 			clients += vans.at(i).getRes().at(j).getResponsible().getName();
 			if(j<vans.at(i).getRes().size()-1){
