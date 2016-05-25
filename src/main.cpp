@@ -50,6 +50,59 @@ int ReservationsMenu(AirShuttle a1){
 	return 0;
 }
 
+
+int Van_ExatSearch(AirShuttle a1){
+	system("cls");
+	int id;
+
+	cout << "Write the id of the desired van: ";
+	cin >> id;
+	cout << endl;
+
+	//chamar funcao da pesquisa exata do veiculo
+
+	return 0;
+}
+
+int Van_AproxSearch(AirShuttle a1){
+	system("cls");
+	int id;
+
+	cout << "Write the id of the desired van: ";
+	cin >> id;
+	cout << endl;
+
+	//chamar funcao da pesquisa exata do veiculo
+
+	return 0;
+}
+
+int Dest_ExatSearch(AirShuttle a1){
+	system("cls");
+	string dest;;
+
+	cout << "Write the id of the desired van: ";
+	cin >> dest;
+	cout << endl;
+
+	//chamar funcao da pesquisa exata do veiculo
+
+	return 0;
+}
+
+int Dest_AproxSearch(AirShuttle a1){
+	system("cls");
+	string dest;
+
+	cout << "Write the id of the desired van: ";
+	cin >> dest;
+	cout << endl;
+
+	//chamar funcao da pesquisa exata do veiculo
+
+	return 0;
+}
+
 /**
  * Main menu
  */
@@ -85,19 +138,19 @@ int mainMenu(AirShuttle a1){
 		mainMenu(a1);
 		break;
 	case 4:
-
+		Van_ExatSearch(a1);
 		mainMenu(a1);
 		break;
 	case 5:
-
+		Van_AproxSearch(a1);
 		mainMenu(a1);
 		break;
 	case 6:
-
+		Dest_ExatSearch(a1);
 		mainMenu(a1);
 		break;
 	case 7:
-
+		Dest_AproxSearch(a1);
 		mainMenu(a1);
 		break;
 	case 8:
