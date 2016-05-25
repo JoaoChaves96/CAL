@@ -67,8 +67,8 @@ int numStringMatching(string filename, string toSearch){
 				if(kmp_matcher(line2,toSearch)){
 					cout << "VAN: " << van << endl;
 					cout << endl << endl;
-					return -1;
-					//commit
+					//return -1;
+					break;
 				}
 				line2="";
 

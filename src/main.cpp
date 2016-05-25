@@ -52,41 +52,44 @@ int ReservationsMenu(AirShuttle a1){
 }
 
 
-int Van_ExatSearch(AirShuttle a1){
+int Cli_ExatSearch(AirShuttle a1){
 	system("cls");
-	int id;
+	string cli;
 
-	cout << "Write the id of the desired van: ";
-	cin >> id;
+	cout << "Write the name of the desired client: ";
+	cin >> cli;
 	cout << endl;
 
-	//chamar funcao da pesquisa exata do veiculo
+	int res = numStringMatching("clients.txt", cli);
 
 	return 0;
 }
 
-int Van_AproxSearch(AirShuttle a1){
+int Cli_AproxSearch(AirShuttle a1){
 	system("cls");
-	int id;
+	string cli;
 
-	cout << "Write the id of the desired van: ";
-	cin >> id;
+	cout << "Write the name of the  desired client: ";
+	cin >> cli;
 	cout << endl;
 
-	//chamar funcao da pesquisa exata do veiculo
+	float res = numApproximateStringMatching("clients.txt", cli);
 
 	return 0;
 }
 
 int Dest_ExatSearch(AirShuttle a1){
 	system("cls");
-	string dest;;
+	string dest;
+	cin.ignore(1000, '\n');
 
-	cout << "Write the id of the desired van: ";
-	cin >> dest;
+	cout << "Write the name of the desired hotel: ";
+	getline(cin, dest);
 	cout << endl;
 
-	//chamar funcao da pesquisa exata do veiculo
+	string final = ";" + dest + ";";
+
+	int res = numStringMatching("reservation.txt", final);
 
 	return 0;
 }
@@ -94,12 +97,15 @@ int Dest_ExatSearch(AirShuttle a1){
 int Dest_AproxSearch(AirShuttle a1){
 	system("cls");
 	string dest;
+	cin.ignore(1000, '\n');
 
-	cout << "Write the id of the desired van: ";
-	cin >> dest;
+	cout << "Write the name of the desired hotel: ";
+	getline(cin, dest);
 	cout << endl;
 
-	//chamar funcao da pesquisa exata do veiculo
+	string final = ";" + dest + ";";
+
+	float res = numApproximateStringMatching("reservation.txt", final);
 
 	return 0;
 }
@@ -120,10 +126,10 @@ int mainMenu(AirShuttle a1){
 	cout << endl << endl << "1 - Reservations" << endl;
 	cout << "2 - Vans" << endl;
 	cout << "3 - Transport passengers" << endl;
-	cout << "4 - Pesquisa Carrinha Exata" << endl;
-	cout << "5 - Pesquisa Carrinha Aproximada" << endl;
-	cout << "6 - Pesquisa Cliente Exata" << endl;
-	cout << "7 - Pesquisa Cliente Aproximada" << endl;
+	cout << "4 - Pesquisa Cliente Exata" << endl;
+	cout << "5 - Pesquisa Cliente Aproximada" << endl;
+	cout << "6 - Pesquisa Destino Exata" << endl;
+	cout << "7 - Pesquisa Destino Aproximada" << endl;
 	cout << "8 - Exit" << endl;
 	cin >> option;
 	switch (option){
@@ -139,11 +145,11 @@ int mainMenu(AirShuttle a1){
 		mainMenu(a1);
 		break;
 	case 4:
-		Van_ExatSearch(a1);
+		Cli_ExatSearch(a1);
 		mainMenu(a1);
 		break;
 	case 5:
-		Van_AproxSearch(a1);
+		Cli_AproxSearch(a1);
 		mainMenu(a1);
 		break;
 	case 6:
