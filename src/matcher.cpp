@@ -55,6 +55,7 @@ int numStringMatching(string filename, string toSearch){
 	int num=0;
 	char van;
 	bool write = false;
+	bool result = false;
 	cout << "RESULTADO PESQUISA: " << endl;
 	while (!fich.eof()) {
 		getline(fich,line1);
@@ -67,6 +68,7 @@ int numStringMatching(string filename, string toSearch){
 				if(kmp_matcher(line2,toSearch)){
 					cout << "VAN: " << van << endl;
 					cout << endl << endl;
+					result=true;
 					//return -1;
 					break;
 				}
@@ -82,6 +84,9 @@ int numStringMatching(string filename, string toSearch){
 
 		}
 
+	}
+	if(!result){
+		cout << "Sem Resultados." << endl;
 	}
 
 	fich.close();

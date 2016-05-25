@@ -55,9 +55,10 @@ int ReservationsMenu(AirShuttle a1){
 int Cli_ExatSearch(AirShuttle a1){
 	system("cls");
 	string cli;
+	cin.ignore(1000, '\n');
 
 	cout << "Write the name of the desired client: ";
-	cin >> cli;
+	getline(cin, cli);
 	cout << endl;
 
 	int res = numStringMatching("clients.txt", cli);
@@ -68,9 +69,10 @@ int Cli_ExatSearch(AirShuttle a1){
 int Cli_AproxSearch(AirShuttle a1){
 	system("cls");
 	string cli;
+	cin.ignore(1000, '\n');
 
 	cout << "Write the name of the  desired client: ";
-	cin >> cli;
+	getline(cin, cli);
 	cout << endl;
 
 	float res = numApproximateStringMatching("clients.txt", cli);
@@ -146,18 +148,22 @@ int mainMenu(AirShuttle a1){
 		break;
 	case 4:
 		Cli_ExatSearch(a1);
+		getchar();
 		mainMenu(a1);
 		break;
 	case 5:
 		Cli_AproxSearch(a1);
+		getchar();
 		mainMenu(a1);
 		break;
 	case 6:
 		Dest_ExatSearch(a1);
+		getchar();
 		mainMenu(a1);
 		break;
 	case 7:
 		Dest_AproxSearch(a1);
+		getchar();
 		mainMenu(a1);
 		break;
 	case 8:
