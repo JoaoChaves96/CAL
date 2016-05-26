@@ -150,7 +150,7 @@ void AirShuttle::loadVans() {
 	inFile.close();
 
 	vector<Reservation> temp = reservations;
-	int l = 0;
+	unsigned int l = 0;
 	while (!temp.empty() && l < vans.size()) {
 		int i = 0;
 		while (i < vans.at(l).getCapacity() && !temp.empty()) {
