@@ -212,6 +212,7 @@ float numApproximateStringMatching(string filename,string toSearch)
 		if(sugest[x] == sugest[x+1]){
 
 		}else{
+
 			cout << sugest[x] <<  " - " <<result[x] << endl;
 			count++;
 		}
