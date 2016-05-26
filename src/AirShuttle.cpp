@@ -209,6 +209,7 @@ void AirShuttle::transportClient() {
 
 		}
 		clients += "}";
+		reservation.erase(reservation.length()-1);
 		reservation += "}";
 		hotVisited.clear();
 	}
