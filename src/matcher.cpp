@@ -134,6 +134,7 @@ float numApproximateStringMatching(string filename,string toSearch)
 	//char van;
 	bool write = false;
 	int num=0, nwords=0;
+	cout << "TOSEARCH: " << toSearch << endl;
 	cout << "RESULTADO PESQUISA: " << endl;
 	while (!fich.eof()) {
 		getline(fich,line1);
@@ -147,10 +148,12 @@ float numApproximateStringMatching(string filename,string toSearch)
 				stringstream s1(line2);
 				while (!s1.eof()) {
 					s1 >> word1;
+					cout << word1 << endl;
 					num += editDistance(toSearch,word1);
 					nwords++;
 				}
 				result.push_back((float)num/nwords);
+				cout << "NUM: " << num << endl;
 				line2="";
 				num=0;
 				nwords=0;
