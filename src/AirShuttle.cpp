@@ -203,12 +203,15 @@ void AirShuttle::transportClient() {
 			if(write){
 				hotVisited.push_back(vans.at(i).getRes().at(j).getDestination()-1);
 				reservation += hotels.at(vans.at(i).getRes().at(j).getDestination()-1) + "; ";
+
+
 			}
 			clients += vans.at(i).getRes().at(j).getResponsible().getName() + "; ";
 			write=true;
 
 		}
 		clients += "}";
+		reservation.erase(reservation.length()-1);
 		reservation += "}";
 		hotVisited.clear();
 	}

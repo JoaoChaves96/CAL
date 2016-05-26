@@ -81,10 +81,11 @@ double Cli_AproxSearch(AirShuttle a1){
 	cout << "Write the name of the  desired client: ";
 	getline(cin, cli);
 	cout << endl;
-
+	string final = cli + ";";
 	clock_t begin = clock();
 
-	numApproximateStringMatching("clients.txt", cli);
+
+	numApproximateStringMatching("clients.txt", final);
 
 	clock_t end = clock();
 

@@ -127,15 +127,14 @@ float numApproximateStringMatching(string filename,string toSearch)
 	if (!fich)
 	{ cout << "Erro a abrir ficheiro de leitura\n"; return 0; }
 
-	vector<char> van;
+	vector<string> sugest;
 	vector<float> result;
-	string line1, line2, word1;
-	float res;
-	//char van;
+	string line1, line2, word1, word2, finalSug;
+	int res = 0;
+	char van;
 	bool write = false;
-	int num=0, nwords=0;
-	cout << "TOSEARCH: " << toSearch << endl;
-	cout << "RESULTADO PESQUISA: " << endl;
+	int num=0;
+	cout << "RESULTADO PESQUISA: " << endl << endl;
 	while (!fich.eof()) {
 		getline(fich,line1);
 
@@ -146,22 +145,36 @@ float numApproximateStringMatching(string filename,string toSearch)
 			}else if(line1.at(i)=='\}'){
 				write = false;
 				stringstream s1(line2);
+				stringstream s2(toSearch);
+				stringstream s3(toSearch);
 				while (!s1.eof()) {
 					s1 >> word1;
-					cout << word1 << endl;
-					num += editDistance(toSearch,word1);
-					nwords++;
+					s2 >> word2;
+					num = editDistance(word2,word1);
+					res += num;
+					finalSug += word1+" ";
+					if(s2.eof() && res==0){
+						cout << toSearch << endl;
+						cout << "VAN: " << van << endl;;
+						return 0;
+					}
+					if(word1[word1.length()-1]==';'){
+						result.push_back(res);
+						sugest.push_back(finalSug);
+						res=0;
+						finalSug="";
+						s2.clear();
+						s2.seekg(0, ios::beg);
+					}
 				}
-				result.push_back((float)num/nwords);
-				cout << "NUM: " << num << endl;
+
 				line2="";
 				num=0;
-				nwords=0;
 
 			}
 
 			if(!write && line1.at(i)!='\{' && line1.at(i)!='\}'){
-				van.push_back(line1.at(i));
+				van=line1.at(i);
 			}else if (write && line1.at(i)!='\{' && line1.at(i)!='\}'){
 				line2 += line1.at(i);
 			}
@@ -170,13 +183,42 @@ float numApproximateStringMatching(string filename,string toSearch)
 
 	}
 	fich.close();
-	//float res=(float)num/nwords;
-	cout << "RES: "<<endl;
-	for(int i =0 ; i < van.size(); i++){
-		cout << van[i] << endl;
+
+	int aux, i, j;
+	string aux2;
+
+	for(j=result.size()-1; j>=1; j--)
+	{
+		for(i=0; i<j; i++)
+		{
+			if(result[i]>result[i+1])
+			{
+				aux=result[i];
+				aux2=sugest[i];
+				result[i]=result[i+1];
+				sugest[i]=sugest[i+1];
+				result[i+1]=aux;
+				sugest[i+1]=aux2;
+
+			}
+		}
 	}
-	for(int j =0 ; j < van.size(); j++){
-		cout << result[j] << endl;
+
+	cout << "Sem Resultados" << endl;
+	cout << "Será que quis dizer: " << endl;
+
+	int count =0;
+	for(int x=0; x<result.size(); x++){
+		if(sugest[x] == sugest[x+1]){
+
+		}else{
+			cout << sugest[x] <<  " - " <<result[x] << endl;
+			count++;
+		}
+		if (count==2){
+			break;
+		}
+
 	}
 
 
