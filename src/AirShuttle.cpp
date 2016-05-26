@@ -47,7 +47,7 @@ void AirShuttle::loadGraph() {
 	readNodes(g, gv);
 	readEdges(g, gv);
 
-	for(int h=0; h<hotels.size(); h++){
+	for(unsigned int h=0; h<hotels.size(); h++){
 		gv->setVertexLabel(h+1, hotels.at(h));
 		if(h!=0){
 			gv->setVertexIcon(h+1,"hotel.png");
@@ -64,7 +64,7 @@ void AirShuttle::loadGraph() {
  * Returns the ID of the nodes
  */
 void AirShuttle::showNodeID() {
-	for (int i = 0; i < g.getVertexSet().size(); i++) {
+	for (unsigned int i = 0; i < g.getVertexSet().size(); i++) {
 		if (g.getVertexSet().at(i)->getAdj().size() != 0)
 			cout << g.getVertexSet().at(i)->getAdj().at(0).getWeight() << endl;
 	}
@@ -150,12 +150,12 @@ void AirShuttle::loadVans() {
 	inFile.close();
 
 	vector<Reservation> temp = reservations;
-	int l = 0;
+	unsigned int l = 0;
 	while (!temp.empty() && l < vans.size()) {
 		int i = 0;
 		while (i < vans.at(l).getCapacity() && !temp.empty()) {
 			int j = 0;
-			for (int k = 0; k < vans.at(l).getRes().size(); k++) {
+			for (unsigned int k = 0; k < vans.at(l).getRes().size(); k++) {
 				if (exceedsTime(vans.at(l).getRes().at(k),
 						temp.at(0))) {
 					j++;
@@ -183,7 +183,7 @@ void AirShuttle::transportClient() {
 	vector<int> hotVisited;
 	vector <string> hotels = getHotels();
 	boolean write =true;
-	for (int i = 0; i < this->vans.size(); i++) {
+	for (unsigned int i = 0; i < this->vans.size(); i++) {
 		if (vans.at(i).getRes().size() == 0)
 			break;
 		Date out = vans.at(i).getRes().at( vans.at(i).getRes().size() - 1).getArrivalDate();
@@ -193,9 +193,9 @@ void AirShuttle::transportClient() {
 		ss << vans.at(i).getId();
 		clients += ss.str()+ "{";
 		reservation += ss.str() + "{;";
-		for (int j = 0; j < vans.at(i).getRes().size(); j++) {
+		for (unsigned int j = 0; j < vans.at(i).getRes().size(); j++) {
 			cout << endl << vans.at(i).getRes().at(j).getResponsible().getName() << "   ---------->   "  << hotels.at(vans.at(i).getRes().at(j).getDestination()-1);
-			for(int x=0; x<hotVisited.size(); x++){
+			for(unsigned int x=0; x<hotVisited.size(); x++){
 				if(hotVisited[x]==vans.at(i).getRes().at(j).getDestination()-1){
 					write=false;
 				}
@@ -231,15 +231,15 @@ void AirShuttle::transportClient() {
  * Shows the path of each van
  */
 void AirShuttle::showPath(){
-	for (int i =0 ; i< vans.size(); i++){
+	for (unsigned int i =0 ; i< vans.size(); i++){
 		cout << "Percurso da carrinha " << vans.at(i).getId() << endl << endl;
 		vans.at(i).getPath(g, gv);
 		cout << endl << endl;
 		getchar();
-		for(int j=0;j<g.getVertexSet().size()*2; j++){
+		for(unsigned int j=0;j<g.getVertexSet().size()*2; j++){
 			gv->setEdgeColor(j+1, "blue");
 		}
-		for(int h=0; h<hotels.size(); h++){
+		for(unsigned int h=0; h<hotels.size(); h++){
 			gv->setVertexLabel(h+1, hotels.at(h));
 			if(h!=0){
 				gv->setVertexIcon(h+1,"hotel.png");
