@@ -5,6 +5,7 @@
 #include <iostream>
 #include <conio.h>
 #include <iomanip>
+#include <ctime>
 
 
 using namespace std;
@@ -52,7 +53,7 @@ int ReservationsMenu(AirShuttle a1){
 }
 
 
-int Cli_ExatSearch(AirShuttle a1){
+double Cli_ExatSearch(AirShuttle a1){
 	system("cls");
 	string cli;
 	cin.ignore(1000, '\n');
@@ -61,12 +62,18 @@ int Cli_ExatSearch(AirShuttle a1){
 	getline(cin, cli);
 	cout << endl;
 
-	int res = numStringMatching("clients.txt", cli);
+	clock_t begin = clock();
 
-	return 0;
+	numStringMatching("clients.txt", cli);
+
+	clock_t end = clock();
+
+	double elapsed_time = double(end-begin) / CLOCKS_PER_SEC;
+
+	return elapsed_time;
 }
 
-int Cli_AproxSearch(AirShuttle a1){
+double Cli_AproxSearch(AirShuttle a1){
 	system("cls");
 	string cli;
 	cin.ignore(1000, '\n');
@@ -75,12 +82,19 @@ int Cli_AproxSearch(AirShuttle a1){
 	getline(cin, cli);
 	cout << endl;
 
-	float res = numApproximateStringMatching("clients.txt", cli);
+	clock_t begin = clock();
 
-	return 0;
+	numApproximateStringMatching("clients.txt", cli);
+
+	clock_t end = clock();
+
+	double elapsed_time = double(end-begin) / CLOCKS_PER_SEC;
+
+
+	return elapsed_time;
 }
 
-int Dest_ExatSearch(AirShuttle a1){
+double Dest_ExatSearch(AirShuttle a1){
 	system("cls");
 	string dest;
 	cin.ignore(1000, '\n');
@@ -91,12 +105,18 @@ int Dest_ExatSearch(AirShuttle a1){
 
 	string final = ";" + dest + ";";
 
-	int res = numStringMatching("reservation.txt", final);
+	clock_t begin = clock();
 
-	return 0;
+	numStringMatching("reservation.txt", final);
+
+	clock_t end = clock();
+
+	double elapsed_time = double(end-begin) / CLOCKS_PER_SEC;
+
+	return elapsed_time;
 }
 
-int Dest_AproxSearch(AirShuttle a1){
+double Dest_AproxSearch(AirShuttle a1){
 	system("cls");
 	string dest;
 	cin.ignore(1000, '\n');
@@ -107,9 +127,15 @@ int Dest_AproxSearch(AirShuttle a1){
 
 	string final = ";" + dest + ";";
 
-	float res = numApproximateStringMatching("reservation.txt", final);
+	clock_t begin = clock();
 
-	return 0;
+	numApproximateStringMatching("reservation.txt", final);
+
+	clock_t end = clock();
+
+	double elapsed_time = double(end-begin) / CLOCKS_PER_SEC;
+
+	return elapsed_time;
 }
 
 /**
@@ -118,6 +144,7 @@ int Dest_AproxSearch(AirShuttle a1){
 int mainMenu(AirShuttle a1){
 
 	int option;
+	double res;
 
 	cout << "#################" << endl;
 	cout << "#               #" << endl;
@@ -147,23 +174,27 @@ int mainMenu(AirShuttle a1){
 		mainMenu(a1);
 		break;
 	case 4:
-		Cli_ExatSearch(a1);
+		res = Cli_ExatSearch(a1);
 		getchar();
+		cout << endl << res << endl;
 		mainMenu(a1);
 		break;
 	case 5:
-		Cli_AproxSearch(a1);
+		res = Cli_AproxSearch(a1);
 		getchar();
+		cout << endl << res << endl;
 		mainMenu(a1);
 		break;
 	case 6:
-		Dest_ExatSearch(a1);
+		res = Dest_ExatSearch(a1);
 		getchar();
+		cout << endl << res << endl;
 		mainMenu(a1);
 		break;
 	case 7:
-		Dest_AproxSearch(a1);
+		res = Dest_AproxSearch(a1);
 		getchar();
+		cout << endl << res << endl;
 		mainMenu(a1);
 		break;
 	case 8:
