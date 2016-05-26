@@ -127,21 +127,56 @@ float numApproximateStringMatching(string filename,string toSearch)
 	if (!fich)
 	{ cout << "Erro a abrir ficheiro de leitura\n"; return 0; }
 
-	string line1, word1;
+	vector<char> van;
+	vector<float> result;
+	string line1, line2, word1;
+	float res;
+	//char van;
+	bool write = false;
 	int num=0, nwords=0;
-
+	cout << "RESULTADO PESQUISA: " << endl;
 	while (!fich.eof()) {
 		getline(fich,line1);
-		stringstream s1(line1);
-		while (!s1.eof()) {
-			s1 >> word1;
-			num += editDistance(toSearch,word1);
-			nwords++;
+
+		for(int i=0; i<line1.length(); i++){
+
+			if(line1.at(i)=='\{'){
+				write=true;
+			}else if(line1.at(i)=='\}'){
+				write = false;
+				stringstream s1(line2);
+				while (!s1.eof()) {
+					s1 >> word1;
+					num += editDistance(toSearch,word1);
+					nwords++;
+				}
+				result.push_back((float)num/nwords);
+				line2="";
+				num=0;
+				nwords=0;
+
+			}
+
+			if(!write && line1.at(i)!='\{' && line1.at(i)!='\}'){
+				van.push_back(line1.at(i));
+			}else if (write && line1.at(i)!='\{' && line1.at(i)!='\}'){
+				line2 += line1.at(i);
+			}
+
 		}
+
 	}
 	fich.close();
-	float res=(float)num/nwords;
-	cout << "RES: " << res <<endl;
+	//float res=(float)num/nwords;
+	cout << "RES: "<<endl;
+	for(int i =0 ; i < van.size(); i++){
+		cout << van[i] << endl;
+	}
+	for(int j =0 ; j < van.size(); j++){
+		cout << result[j] << endl;
+	}
+
+
 	return res;
 }
 
