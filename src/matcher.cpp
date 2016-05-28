@@ -4,6 +4,9 @@
 #include <fstream>
 #include <sstream>
 #include <vector>
+#include <algorithm>
+#include <string>
+#include <cctype>
 
 
 
@@ -208,12 +211,14 @@ float numApproximateStringMatching(string filename,string toSearch)
 	cout << "Será que quis dizer: " << endl;
 
 	int count =0;
+	string finals;
 	for(int x=0; x<result.size(); x++){
+		finals = sugest[x];
 		if(sugest[x] == sugest[x+1]){
 
 		}else{
-
-			cout << sugest[x] <<  " - " <<result[x] << endl;
+			finals.erase(remove(finals.begin(), finals.end(), ';'), finals.end());
+			cout << finals <<  " - " <<result[x] << endl;
 			count++;
 		}
 		if (count==2){
