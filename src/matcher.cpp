@@ -34,7 +34,6 @@ bool kmp_matcher(string text, string toSearch){
 	int m=toSearch.length();
 	vector<int> prefix(m);
 	comp_prefix(toSearch, prefix);
-
 	int n=text.length();
 
 	int q=-1;
@@ -44,6 +43,7 @@ bool kmp_matcher(string text, string toSearch){
 		if (toSearch[q+1]==text[i])
 			q++;
 		if (q==m-1) {
+			toSearch.erase(remove(toSearch.begin(), toSearch.end(), ';'), toSearch.end());
 			cout << toSearch <<endl;
 			num++;
 			found = true;
