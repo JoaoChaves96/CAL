@@ -9,7 +9,9 @@
 #include <cctype>
 
 
-
+/**
+ * Processing prefix
+ */
 void comp_prefix(string toSearch, vector<int> & prefix)
 {
 	int m=toSearch.length();
@@ -23,6 +25,9 @@ void comp_prefix(string toSearch, vector<int> & prefix)
 	}
 }
 
+/**
+ * Returns TRUE if found a match or False if don't
+ */
 bool kmp_matcher(string text, string toSearch){
 	bool found= false;
 	int num=0;
@@ -39,7 +44,6 @@ bool kmp_matcher(string text, string toSearch){
 		if (toSearch[q+1]==text[i])
 			q++;
 		if (q==m-1) {
-			//cout <<"pattern occurs with shift" << i-m+1 << endl;
 			cout << toSearch <<endl;
 			num++;
 			found = true;
@@ -49,6 +53,9 @@ bool kmp_matcher(string text, string toSearch){
 	return found;
 }
 
+/**
+ * Read file, call the function to search and display result
+ */
 int numStringMatching(string filename, string toSearch){
 	ifstream fich(filename.c_str());
 	if (!fich)
@@ -97,6 +104,9 @@ int numStringMatching(string filename, string toSearch){
 	return num;
 }
 
+/**
+ *	Calculate edit distance
+ */
 int editDistance(string pattern, string text)
 {
 	int n=text.length();
@@ -124,6 +134,9 @@ int editDistance(string pattern, string text)
 	return d[n];
 }
 
+/**
+ * Read file and call the function to search and display result
+ */
 float numApproximateStringMatching(string filename,string toSearch)
 {
 	ifstream fich(filename.c_str());
